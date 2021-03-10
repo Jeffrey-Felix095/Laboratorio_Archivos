@@ -15,7 +15,8 @@ public class Laboratorio_Archivos {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Menu pantalla_1 = new Menu();
+        pantalla_1.setVisible(true);
     }
     
 }
