@@ -94,23 +94,24 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteActionPerformed
+        
         Cliente pantalla_Cliente = new Cliente();
         pantalla_Cliente.setVisible(true);
+
     }//GEN-LAST:event_btnClienteActionPerformed
 
     private void btnAdministradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdministradorActionPerformed
-       Administrador pantalla_Administrador = new Administrador();
+        Administrador pantalla_Administrador = new Administrador();
         pantalla_Administrador.setVisible(true);
+        
     }//GEN-LAST:event_btnAdministradorActionPerformed
 
     private void btnVeterinarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVeterinarioActionPerformed
         Veterinario pantalla_Veterinario = new Veterinario();
         pantalla_Veterinario.setVisible(true);
+        
     }//GEN-LAST:event_btnVeterinarioActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
+ 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -140,6 +141,7 @@ public class Menu extends javax.swing.JFrame {
             public void run() {
                 new Menu().setVisible(true);
             }
+            
         });
     }
 
