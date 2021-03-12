@@ -9,6 +9,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -91,6 +92,11 @@ public class Interfaz_Cliente extends javax.swing.JFrame {
         jLabel1.setText("Citas");
 
         jButton2.setText("Cancelar cita");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Modificar cita");
 
@@ -327,6 +333,10 @@ public class Interfaz_Cliente extends javax.swing.JFrame {
         pantalla_modificarCliente.setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+      
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     void mostrarDatos(int cedula) {
         String ruta = "C:\\Users\\Jeffrey Felix\\Documents\\GitHub\\Laboratorio_Archivos\\Laboratorio_Archivos"; // ruta para el archivo
         String fileName = "Clientes.txt"; // nombre
@@ -356,6 +366,27 @@ public class Interfaz_Cliente extends javax.swing.JFrame {
             }//fin while
         } catch (IOException e) {
             System.out.println("Error");
+        }
+
+    }
+    
+    void limpiar() throws FileNotFoundException {
+        File x = new File("");
+        File mascotas = new File("Mascotas.txt");
+        try {
+            FileWriter fw = new FileWriter(mascotas);
+            if (fw != null) {
+                fw.close();
+            }
+            if (mascotas.delete()) {
+                System.out.println("El archivo fue eliminado");
+                mascotas.createNewFile();
+            } else {
+                System.out.println("El archivo no se puede borrar");
+            }
+
+        } catch (IOException ex) {
+            Logger.getLogger(Interfaz_Cliente.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
