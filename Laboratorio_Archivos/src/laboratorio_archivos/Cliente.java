@@ -19,9 +19,8 @@ import javax.swing.JLabel;
  */
 public class Cliente extends javax.swing.JFrame {
 
-    int cedula;
-Interfaz_Cliente f = new Interfaz_Cliente();
-    
+
+   static int cedula;
 
     public Cliente() {
         initComponents();
@@ -116,8 +115,7 @@ Interfaz_Cliente f = new Interfaz_Cliente();
     private void btnSiguiente_CActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguiente_CActionPerformed
         if (validarCliente(Integer.parseInt(txtCedula_Ingreso.getText()))) {
             cedula = Integer.parseInt(txtCedula_Ingreso.getText());
-            f.setCedulaD(cedula);
-            System.out.println(f.cedulaD);
+            System.out.println(getCedula());
             Interfaz_Cliente pantalla_interfazC = new Interfaz_Cliente();
             pantalla_interfazC.setVisible(true);
         } else {
@@ -126,9 +124,21 @@ Interfaz_Cliente f = new Interfaz_Cliente();
 
     }//GEN-LAST:event_btnSiguiente_CActionPerformed
 
-    
+    public int getCedula() {
+        return cedula;
+    }
 
-   
+    public void setCedula(int cedula) {
+        this.cedula = cedula;
+    }
+
+    public static int Cedula() {
+        return cedula;
+    }
+
+    public Cliente(int cedula) {
+        this.cedula = cedula;
+    }
 
     private void txtCedula_IngresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedula_IngresoActionPerformed
         // TODO add your handling code here:
@@ -162,8 +172,6 @@ Interfaz_Cliente f = new Interfaz_Cliente();
         }
         return false;
     }
-
-   
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

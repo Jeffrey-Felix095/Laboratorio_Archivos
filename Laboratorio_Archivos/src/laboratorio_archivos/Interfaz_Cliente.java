@@ -21,11 +21,12 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Interfaz_Cliente extends javax.swing.JFrame {
 
-    int cedulaD=getCedulaD();
+    
+    
+   int cedulaD=Cliente.Cedula();
 
     public Interfaz_Cliente() {
         initComponents();
-        
         String[] column = {"Cedula del dueño", "Nombre", "Raza", "Color", "Fecha de nacimiento"};
         DefaultTableModel model = new DefaultTableModel(column, 0);
         TablaMascotas.setModel(model);
@@ -33,11 +34,6 @@ public class Interfaz_Cliente extends javax.swing.JFrame {
         mostrarDatos(cedulaD);
         System.out.println(cedulaD);
     }
-
-    
-    
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -149,6 +145,11 @@ public class Interfaz_Cliente extends javax.swing.JFrame {
         });
 
         jButton6.setText("Modificar");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         txtDireccion.setEditable(false);
 
@@ -303,13 +304,14 @@ public class Interfaz_Cliente extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    public int getCedulaD() {
+        return cedulaD;
+    }
+
     public void setCedulaD(int cedulaD) {
         this.cedulaD = cedulaD;
     }
 
-    public int getCedulaD() {
-        return cedulaD;
-    }
 
     private void txtTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefonoActionPerformed
         // TODO add your handling code here:
@@ -319,6 +321,11 @@ public class Interfaz_Cliente extends javax.swing.JFrame {
         Agregar_Mascota pantalla_agregarMascota = new Agregar_Mascota();
         pantalla_agregarMascota.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        Modificar_Cliente pantalla_modificarCliente = new Modificar_Cliente();
+        pantalla_modificarCliente.setVisible(true);
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     void mostrarDatos(int cedula) {
         String ruta = "C:\\Users\\Jeffrey Felix\\Documents\\GitHub\\Laboratorio_Archivos\\Laboratorio_Archivos"; // ruta para el archivo
@@ -406,7 +413,7 @@ public class Interfaz_Cliente extends javax.swing.JFrame {
                 String razaPerro = "";
                 String colorPerro = "";
                 String fechaNacimiento = "";
-                
+
                 int cont = 0;
                 for (int i = 0; i < lector.length(); i++) {
                     if (lector.substring(i, i + 1).compareTo(";") != 0) {
@@ -433,10 +440,10 @@ public class Interfaz_Cliente extends javax.swing.JFrame {
                         dato = "";
                     }
                 }
-                if(cedulaDueño==id){
-                String Datos[] = {String.valueOf(cedulaDueño), nombrePerro, razaPerro, colorPerro, fechaNacimiento};
-                model.addRow(Datos);
-                TablaMascotas.setModel(model);
+                if (cedulaDueño == id) {
+                    String Datos[] = {String.valueOf(cedulaDueño), nombrePerro, razaPerro, colorPerro, fechaNacimiento};
+                    model.addRow(Datos);
+                    TablaMascotas.setModel(model);
                 }
 //                System.out.println(cliente.getCedula());
             }
