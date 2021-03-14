@@ -22,18 +22,16 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Jeffrey Felix
  */
-public class Modificar_Cliente extends javax.swing.JFrame {
+public class Modificar_Mascota extends javax.swing.JFrame {
 
-    int cedula = Cliente.Cedula();
     String[][] M;
     int n;
 
-    public Modificar_Cliente() {
+    public Modificar_Mascota() {
         initComponents();
-        mostrarDatos(cedula);
-         String[] column = {"Cedula", "Nombre", "Telefono","Direccion","Correo"};
+        String[] column = {"Cedula", "Nombre del perro", "Raza", "Color", "Fecha de nacimiento"};
         DefaultTableModel model = new DefaultTableModel(column, 0);
-        tablaModificar.setModel(model);
+        tablaModificarM.setModel(model);
         TomarDatos();
     }
 
@@ -41,23 +39,39 @@ public class Modificar_Cliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtNombre_MC = new javax.swing.JTextField();
+        lolo = new javax.swing.JLabel();
+        txtColor_MM = new javax.swing.JTextField();
+        txtRaza_MM = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaModificarM = new javax.swing.JTable();
+        txtNombreP_MM = new javax.swing.JTextField();
         txtCedula_MC = new javax.swing.JTextField();
         btnModificar_Cliente = new javax.swing.JButton();
-        txtCorreo_MC = new javax.swing.JTextField();
+        txtFechaN_MM = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        lolo = new javax.swing.JLabel();
-        txtDireccion_MC = new javax.swing.JTextField();
-        txtTelefono_MC = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tablaModificar = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        txtNombrePB = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        lolo.setFont(new java.awt.Font("Segoe Print", 1, 24)); // NOI18N
+        lolo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lolo.setText("Datos de Mascotas");
+
+        tablaModificarM.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane1.setViewportView(tablaModificarM);
 
         btnModificar_Cliente.setText("Modificar");
         btnModificar_Cliente.addActionListener(new java.awt.event.ActionListener() {
@@ -67,87 +81,78 @@ public class Modificar_Cliente extends javax.swing.JFrame {
         });
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel7.setText("Nombre:");
+        jLabel7.setText("Nombre del perro:");
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel8.setText("Telefono:");
+        jLabel8.setText("Raza del perro:");
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel10.setText("Direccion:");
+        jLabel10.setText("Color del perro: ");
 
-        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel11.setText("Cedula:");
-
-        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel12.setText("Correo:");
-
-        lolo.setFont(new java.awt.Font("Segoe Print", 1, 24)); // NOI18N
-        lolo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lolo.setText("Datos personales");
-
-        tablaModificar.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane1.setViewportView(tablaModificar);
-
-        jButton1.setText("jButton1");
+        jButton1.setText("Buscar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
+        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel11.setText("Cedula del dueño:");
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel12.setText("Fecha de Nacimento del perro: ");
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel9.setText("Nombre del perro:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap(40, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(89, 89, 89)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel11)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtCedula_MC, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel8)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtTelefono_MC)))
-                                .addGap(28, 28, 28)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel7)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtNombre_MC, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel10)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtDireccion_MC))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(138, 138, 138)
                                 .addComponent(jLabel12)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtCorreo_MC, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(70, 70, 70)
+                                .addComponent(txtFechaN_MM, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jLabel8))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtRaza_MM, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtCedula_MC, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(41, 41, 41)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel10))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtNombreP_MM)
+                                    .addComponent(txtColor_MM, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(275, 275, 275)
+                                .addComponent(btnModificar_Cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(258, 258, 258)))
+                        .addGap(23, 23, 23))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 567, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(89, 89, 89))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtNombrePB, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton1)
-                        .addGap(87, 87, 87)
-                        .addComponent(btnModificar_Cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(227, 227, 227)
-                        .addComponent(lolo)))
-                .addContainerGap(48, Short.MAX_VALUE))
+                        .addGap(163, 163, 163))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lolo)
+                        .addGap(257, 257, 257))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -155,28 +160,31 @@ public class Modificar_Cliente extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(lolo)
                 .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(txtNombrePB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(txtCedula_MC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel7)
-                    .addComponent(txtNombre_MC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNombreP_MM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(txtTelefono_MC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtRaza_MM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10)
-                    .addComponent(txtDireccion_MC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtColor_MM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(txtCorreo_MC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtFechaN_MM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnModificar_Cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addComponent(btnModificar_Cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         pack();
@@ -184,11 +192,11 @@ public class Modificar_Cliente extends javax.swing.JFrame {
 
     private void btnModificar_ClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificar_ClienteActionPerformed
         for (int i = 0; i < n; i++) {
-            if (M[i][0].compareTo(txtCedula_MC.getText()) == 0) {
-                M[i][1] = txtNombre_MC.getText();
-                M[i][2] = txtTelefono_MC.getText();
-                M[i][3] = txtDireccion_MC.getText();
-                M[i][4] = txtCorreo_MC.getText();
+            if (M[i][1].compareTo(txtNombrePB.getText()) == 0) {
+                M[i][1] = txtNombreP_MM.getText();
+                M[i][2] = txtRaza_MM.getText();
+                M[i][3] = txtColor_MM.getText();
+                M[i][4] = txtFechaN_MM.getText();
             }
         }
         try {
@@ -199,102 +207,77 @@ public class Modificar_Cliente extends javax.swing.JFrame {
         Guardar();
         Actualizar();
         TomarDatos();
-        DefaultTableModel model = (DefaultTableModel) tablaModificar.getModel();
+        DefaultTableModel model = (DefaultTableModel) tablaModificarM.getModel();
         for (int i = 0; i < n; i++) {
-            if (M[i][0].compareTo(txtCedula_MC.getText()) == 0) {
+            if (M[i][1].compareTo(txtNombrePB.getText()) == 0) {
                 String[] FILA = {M[i][0], M[i][1], M[i][2], M[i][3], M[i][4]};
                 model.addRow(FILA);
-                tablaModificar.setModel(model);
+                tablaModificarM.setModel(model);
             }
         }
         dispose();
-
     }//GEN-LAST:event_btnModificar_ClienteActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         TomarDatos();
-        DefaultTableModel model = (DefaultTableModel) tablaModificar.getModel();
+        DefaultTableModel model = (DefaultTableModel) tablaModificarM.getModel();
         for (int i = 0; i < n; i++) {
-            if (M[i][0].compareTo(txtCedula_MC.getText()) == 0) {
+            if (M[i][1].compareTo(txtNombrePB.getText()) == 0) {
+                plasmar(i);
                 String[] FILA = {M[i][0], M[i][1], M[i][2], M[i][3], M[i][4]};
                 model.addRow(FILA);
-                tablaModificar.setModel(model);
+                tablaModificarM.setModel(model);
             }
         }
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    public Boolean mostrarDatos(int cedulaIngresada) {
-        String ruta = "C:\\Users\\Jeffrey Felix\\Documents\\GitHub\\Laboratorio_Archivos\\Laboratorio_Archivos"; // ruta para el archivo
-        String fileName = "Clientes.txt"; // nombre
-        File archivo = new File(ruta, fileName); // instancia el archivo
-
-        try (Scanner sc = new Scanner(archivo)) {
-            boolean encontrado = false;
-            while (sc.hasNextLine() && encontrado == false) {
-                String linea = sc.nextLine();
-                String data[] = linea.split(";");
-                int idPersona = Integer.parseInt(data[0]);
-                String nombre = data[1];
-                int telefono = Integer.parseInt(data[2]);
-                String direccion = data[3];
-                String correo = data[4];
-                // comparar idBuscar con idPersona
-                /*comprar y retornar
-		return data[2]*/
-                if (cedulaIngresada == idPersona) {
-                    txtCedula_MC.setText(Integer.toString(idPersona));
-                    txtNombre_MC.setText(nombre);
-                    txtTelefono_MC.setText(Integer.toString(telefono));
-                    txtDireccion_MC.setText(direccion);
-                    txtCorreo_MC.setText(correo);
-                    return true;
-                }
-
-            }//fin while
-        } catch (IOException e) {
-            System.out.println("Error");
-        }
-        return false;
+    void plasmar(int i) {
+        txtCedula_MC.setText(M[i][0]);
+        txtNombreP_MM.setText(M[i][1]);
+        txtRaza_MM.setText(M[i][2]);
+        txtColor_MM.setText(M[i][3]);
+        txtFechaN_MM.setText(M[i][4]);
     }
 
     void Actualizar() {
-        DefaultTableModel Model = (DefaultTableModel) tablaModificar.getModel();
+        DefaultTableModel Model = (DefaultTableModel) tablaModificarM.getModel();
         Model.setRowCount(0);
         for (int i = 0; i < n; i++) {
             String[] v = {M[i][0], M[i][1], M[i][2], M[i][3], M[i][4]};
             Model.addRow(v);
-            tablaModificar.setModel(Model);
+            tablaModificarM.setModel(Model);
         }
     }
 
     void limpiar() throws FileNotFoundException {
         File x = new File("");
-        File cliente = new File("Clientes.txt");
+        File mascotas = new File("Mascotas.txt");
         try {
-            FileWriter fw = new FileWriter(cliente);
+            FileWriter fw = new FileWriter(mascotas);
             if (fw != null) {
                 fw.close();
             }
-            if (cliente.delete()) {
+            if (mascotas.delete()) {
                 System.out.println("El archivo fue eliminado");
-                cliente.createNewFile();
+                mascotas.createNewFile();
             } else {
                 System.out.println("El archivo no se puede borrar");
             }
 
         } catch (IOException ex) {
-            Logger.getLogger(Modificar_Cliente.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Modificar_Mascota.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
 
     int ContarDatos() {
         File x = new File("");
-        File Clientes = new File("Clientes.txt");
+        File mascotas = new File("Mascotas.txt");
         FileReader fw;
         int cont = 0;
         try {
-            fw = new FileReader(Clientes);
+            fw = new FileReader(mascotas);
             BufferedReader br = new BufferedReader(fw);
             String lector;
             while ((lector = br.readLine()) != null) {
@@ -316,10 +299,10 @@ public class Modificar_Cliente extends javax.swing.JFrame {
         n = ContarDatos();
         M = new String[n][5];
         File x = new File("");
-        File Clientes = new File("Clientes.txt");
+        File mascotas = new File("Mascotas.txt");
         FileReader fw;
         try {
-            fw = new FileReader(Clientes);
+            fw = new FileReader(mascotas);
             BufferedReader br = new BufferedReader(fw);
             String lector;
             int fila = 0;
@@ -366,10 +349,10 @@ public class Modificar_Cliente extends javax.swing.JFrame {
 
     void Guardar() {
         File x = new File("");
-        File Clientes = new File("Clientes.txt");
+        File mascotas = new File("Mascotas.txt");
         FileWriter fw = null;
         try {
-            fw = new FileWriter(Clientes, true);
+            fw = new FileWriter(mascotas, true);
             PrintWriter pw = new PrintWriter(fw);
             for (int i = 0; i < n; i++) {
                 pw.print(M[i][0] + ";" + M[i][1] + ";" + M[i][2] + ";" + M[i][3] + ";" + M[i][4] + ";");
@@ -389,10 +372,10 @@ public class Modificar_Cliente extends javax.swing.JFrame {
         }
         JOptionPane.showMessageDialog(rootPane, "El archivo se guardo");
         txtCedula_MC.setText("");
-        txtNombre_MC.setText("");
-        txtTelefono_MC.setText("");
-        txtDireccion_MC.setText("");
-        txtCorreo_MC.setText("");
+        txtNombreP_MM.setText("");
+        txtRaza_MM.setText("");
+        txtColor_MM.setText("");
+        txtFechaN_MM.setText("");
     }
 
     void EscribirDatos() {
@@ -418,20 +401,20 @@ public class Modificar_Cliente extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Modificar_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Modificar_Mascota.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Modificar_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Modificar_Mascota.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Modificar_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Modificar_Mascota.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Modificar_Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Modificar_Mascota.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Modificar_Cliente().setVisible(true);
+                new Modificar_Mascota().setVisible(true);
             }
         });
     }
@@ -444,13 +427,15 @@ public class Modificar_Cliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lolo;
-    private javax.swing.JTable tablaModificar;
+    private javax.swing.JTable tablaModificarM;
     private javax.swing.JTextField txtCedula_MC;
-    private javax.swing.JTextField txtCorreo_MC;
-    private javax.swing.JTextField txtDireccion_MC;
-    private javax.swing.JTextField txtNombre_MC;
-    private javax.swing.JTextField txtTelefono_MC;
+    private javax.swing.JTextField txtColor_MM;
+    private javax.swing.JTextField txtFechaN_MM;
+    private javax.swing.JTextField txtNombrePB;
+    private javax.swing.JTextField txtNombreP_MM;
+    private javax.swing.JTextField txtRaza_MM;
     // End of variables declaration//GEN-END:variables
 }

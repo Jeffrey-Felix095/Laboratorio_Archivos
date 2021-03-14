@@ -179,7 +179,7 @@ public class Agregar_Cliente extends javax.swing.JFrame {
             int telefono = Integer.parseInt(txtTelefono_AC.getText());
             String direccion = txtDireccion.getText();
             String correo = txtCorreo_AC.getText();
-            pw.print(cedula + ";" + nombre + ";" + telefono + ";" + direccion + ";" + correo);
+            pw.print(cedula + ";" + nombre + ";" + telefono + ";" + direccion + ";" + correo+";");
             pw.println();
         } catch (IOException e) {
             System.out.println(e);

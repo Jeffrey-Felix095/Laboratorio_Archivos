@@ -153,7 +153,7 @@ public class Agregar_Mascota extends javax.swing.JFrame {
             String razaPerro = txtRazaPerro.getText();
             String colorPerro = txtColorPerro.getText();
             String fechaNacimiento = txtFechaNacimiento.getText();
-            pw.print(cedulaDueño + ";" + nombrePerro + ";" + razaPerro + ";" + colorPerro + ";" + fechaNacimiento);
+            pw.print(cedulaDueño + ";" + nombrePerro + ";" + razaPerro + ";" + colorPerro + ";" + fechaNacimiento+";");
             pw.println();
         } catch (IOException e) {
             System.out.println(e);
