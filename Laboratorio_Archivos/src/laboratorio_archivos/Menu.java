@@ -97,7 +97,7 @@ public class Menu extends javax.swing.JFrame {
         
         Cliente pantalla_Cliente = new Cliente();
         pantalla_Cliente.setVisible(true);
-
+        dispose();
     }//GEN-LAST:event_btnClienteActionPerformed
 
     private void btnAdministradorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdministradorActionPerformed

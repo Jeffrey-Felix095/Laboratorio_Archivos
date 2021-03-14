@@ -46,6 +46,7 @@ public class Agregar_Mascota extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         btnAgregarMascota = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -74,6 +75,13 @@ public class Agregar_Mascota extends javax.swing.JFrame {
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel12.setText("Fecha de nacimiento:");
+
+        jButton3.setText("←");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -104,7 +112,9 @@ public class Agregar_Mascota extends javax.swing.JFrame {
                         .addGap(82, 82, 82)))
                 .addGap(69, 69, 69))
             .addGroup(layout.createSequentialGroup()
-                .addGap(138, 138, 138)
+                .addContainerGap()
+                .addComponent(jButton3)
+                .addGap(81, 81, 81)
                 .addComponent(lolo)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -112,7 +122,9 @@ public class Agregar_Mascota extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(lolo)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lolo)
+                    .addComponent(jButton3))
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
@@ -172,9 +184,13 @@ public class Agregar_Mascota extends javax.swing.JFrame {
         txtRazaPerro.setText("");
         txtColorPerro.setText("");
         txtFechaNacimiento.setText("");
-        
+        dispose();
         
     }//GEN-LAST:event_btnAgregarMascotaActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -213,6 +229,7 @@ public class Agregar_Mascota extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarMascota;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
