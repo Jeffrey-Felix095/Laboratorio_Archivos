@@ -13,6 +13,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Calendar;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -27,6 +28,8 @@ public class ModificarCita_C extends javax.swing.JFrame {
     int cedulaD = Cliente.Cedula();
     String[][] M;
     int n;
+    String fechaAnterior, horaAnterior;
+    String fechaActual, horaActual;
 
     public ModificarCita_C() {
         initComponents();
@@ -62,10 +65,11 @@ public class ModificarCita_C extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         JCFechaCN = new com.toedter.calendar.JDateChooser();
+        jLabel8 = new javax.swing.JLabel();
+        jcbHora = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        TablaCitas.setAutoCreateColumnsFromModel(false);
         TablaCitas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -122,6 +126,11 @@ public class ModificarCita_C extends javax.swing.JFrame {
             }
         });
 
+        jLabel8.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
+        jLabel8.setText("Hora:");
+
+        jcbHora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "8:00 AM", "8:30 AM", "9:00 AM", "9:30 AM", "10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM", "12:00", "12:30 PM", "2:00 PM", "2:30 PM", "3:00 PM", "3:30 PM", "4:00 PM", "4:30 PM", "5:00 PM", "5:30 PM" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -133,7 +142,6 @@ public class ModificarCita_C extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(105, 105, 105)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -153,54 +161,63 @@ public class ModificarCita_C extends javax.swing.JFrame {
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel5)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(txtNombreP_AG))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel6)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(JCFechaCN, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jLabel7)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(txtValorEstimado, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(txtNombreP_AG)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(159, 159, 159)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel6)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(JCFechaCN, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(26, 26, 26)
+                            .addComponent(jLabel8)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jcbHora, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel7)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtValorEstimado, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 710, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(txtCedulaD_AG))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNombreD_AG))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNombreP_AG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(9, 9, 9)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jcbServicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7)
-                            .addComponent(txtValorEstimado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(JCFechaCN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtCedulaD_AG))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNombreD_AG))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNombreP_AG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(9, 9, 9)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jcbServicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel6)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7)
+                            .addComponent(txtValorEstimado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel8)
+                                .addComponent(jcbHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addComponent(JCFechaCN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(23, 23, 23)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -209,35 +226,53 @@ public class ModificarCita_C extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        for (int i = 0; i < n; i++) {
-            if (M[i][2].compareTo(txtNombreP_AG.getText()) == 0) {
-                M[i][2] = txtNombreP_AG.getText();
-                M[i][3] = (String) jcbServicio.getSelectedItem();
-                String dia = Integer.toString(JCFechaCN.getCalendar().get(Calendar.DAY_OF_MONTH));
-                String mes = Integer.toString(JCFechaCN.getCalendar().get(Calendar.MONTH));
-                String año = Integer.toString(JCFechaCN.getCalendar().get(Calendar.YEAR));
-                String fecha = dia + "/" + mes + "/" + año;
-                System.out.println(fecha);
-                M[i][4] = fecha;
+        if (MascotaExiste(txtNombreP_AG.getText())) {
+            String fecha = "";
+            for (int i = 0; i < n; i++) {
+                if (M[i][4].compareTo(fechaAnterior) == 0 && M[i][5].compareTo(horaAnterior) == 0) {
+                    M[i][2] = txtNombreP_AG.getText();
+                    M[i][3] = (String) jcbServicio.getSelectedItem();
+                    try {
+                        String dia = Integer.toString(JCFechaCN.getCalendar().get(Calendar.DAY_OF_MONTH));
+                        String mes = Integer.toString(JCFechaCN.getCalendar().get(Calendar.MONTH));
+                        String año = Integer.toString(JCFechaCN.getCalendar().get(Calendar.YEAR));
+                        fecha = dia + "/" + mes + "/" + año;
+                        M[i][4] = fecha;
+                        M[i][5] = (String) jcbHora.getSelectedItem();
+                        fechaActual = M[i][4];
+                        horaActual = M[i][5];
+                    } catch (Exception e) {
+                        JOptionPane.showMessageDialog(rootPane, "Debe elegir una fecha");
+                    }
+
+                }
             }
-        }
-        try {
-            limpiar();
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Modificar_Cliente.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        Guardar();
-        Actualizar();
-        TomarDatos();
-        DefaultTableModel model = (DefaultTableModel) TablaCitas.getModel();
-        for (int i = 0; i < n; i++) {
-            if (M[i][1].compareTo(txtNombreP_AG.getText()) == 0) {
-                String[] FILA = {M[i][0], M[i][1], M[i][2], M[i][3], M[i][4], M[i][5], M[i][6], M[i][7], M[i][8]};
-                model.addRow(FILA);
-                TablaCitas.setModel(model);
+            if (!fecha.equals("") && !txtNombreP_AG.getText().equals("")) {
+                try {
+                    limpiar();
+                } catch (FileNotFoundException ex) {
+                    Logger.getLogger(Modificar_Cliente.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                Guardar();
+                Actualizar();
+                TomarDatos();
+                DefaultTableModel model = (DefaultTableModel) TablaCitas.getModel();
+                for (int i = 0; i < n; i++) {
+                    if (M[i][4].compareTo(fechaAnterior) == 0 && M[i][5].compareTo(horaAnterior) == 0) {
+                        String[] FILA = {M[i][0], M[i][1], M[i][2], M[i][3], M[i][4], M[i][5], M[i][6], M[i][7], M[i][8], M[i][9]};
+                        model.addRow(FILA);
+                        TablaCitas.setModel(model);
+                    }
+                }
+                dispose();
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Debe rellenar todos los campos");
             }
+
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "La mascota ingresada no existe");
         }
-        dispose();
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void TablaCitasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaCitasMouseClicked
@@ -250,7 +285,9 @@ public class ModificarCita_C extends javax.swing.JFrame {
             String nombrePerro = (String) TablaCitas.getValueAt(fila, 2);
             String servicio = (String) TablaCitas.getValueAt(fila, 3);
             String fechaC = (String) TablaCitas.getValueAt(fila, 4);
-            String hora = (String) TablaCitas.getValueAt(fila, 5);
+            String horaC = (String) TablaCitas.getValueAt(fila, 5);
+            fechaAnterior = (String) TablaCitas.getValueAt(fila, 4);
+            horaAnterior = (String) TablaCitas.getValueAt(fila, 5);
             String estado = (String) TablaCitas.getValueAt(fila, 6);
             String veterinario = (String) TablaCitas.getValueAt(fila, 7);
             double valor = Double.parseDouble((String) TablaCitas.getValueAt(fila, 8).toString());
@@ -359,7 +396,7 @@ public class ModificarCita_C extends javax.swing.JFrame {
                             case 7:
                                 M[fila][7] = dato;
                                 break;
-                            default:
+                            case 8:
                                 M[fila][8] = dato;
                                 break;
                         }
@@ -490,6 +527,30 @@ public class ModificarCita_C extends javax.swing.JFrame {
 
     }
 
+    public Boolean MascotaExiste(String m) {
+        String ruta = "C:\\Users\\Jeffrey Felix\\Documents\\GitHub\\Laboratorio_Archivos\\Laboratorio_Archivos"; // ruta para el archivo
+        String fileName = "Mascotas.txt"; // nombre
+        File archivo = new File(ruta, fileName); // instancia el archivo
+
+        try (Scanner sc = new Scanner(archivo)) {
+            boolean encontrado = false;
+            while (sc.hasNextLine() && encontrado == false) {
+                String linea = sc.nextLine();
+                String data[] = linea.split(";");
+                String nombre = data[1];
+                // comparar idBuscar con idPersona
+                /*comprar y retornar
+		return data[2]*/
+                if (m.equals(nombre)) {
+                    return true;
+                }
+            }//fin while
+        } catch (IOException e) {
+            System.out.println("Error");
+        }
+        return false;
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -536,7 +597,9 @@ public class ModificarCita_C extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JComboBox<String> jcbHora;
     private javax.swing.JComboBox<String> jcbServicio;
     private javax.swing.JTextField txtCedulaD_AG;
     private javax.swing.JTextField txtNombreD_AG;

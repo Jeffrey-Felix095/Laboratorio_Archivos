@@ -19,7 +19,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Agregar_Mascota extends javax.swing.JFrame {
 
-   int cedulaDueño = Cliente.Cedula();
+    int cedulaDueño = Cliente.Cedula();
+
     public Agregar_Mascota() {
         initComponents();
         txtCedulaDueño.setText(Integer.toString(cedulaDueño));
@@ -154,41 +155,57 @@ public class Agregar_Mascota extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAgregarMascotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarMascotaActionPerformed
-        File Y = new File("");
-        File Mascotas = new File("Mascotas.txt");
-        FileWriter fw = null;
-        try {
-            fw = new FileWriter(Mascotas, true);
-            PrintWriter pw = new PrintWriter(fw);
-            int cedulaDueño = Integer.parseInt(txtCedulaDueño.getText());
-            String nombrePerro = txtNombrePerro.getText();
-            String razaPerro = txtRazaPerro.getText();
-            String colorPerro = txtColorPerro.getText();
-             String dia = Integer.toString(JCFechaN.getCalendar().get(Calendar.DAY_OF_MONTH));
-            String mes = Integer.toString(JCFechaN.getCalendar().get(Calendar.MONTH));
-            String año = Integer.toString(JCFechaN.getCalendar().get(Calendar.YEAR));
-            String fechaNacimiento = dia+"/"+mes+"/"+año;
-            System.out.println(fechaNacimiento);
-            pw.print(cedulaDueño + ";" + nombrePerro + ";" + razaPerro + ";" + colorPerro + ";" + fechaNacimiento+";");
-            pw.println();
-        } catch (IOException e) {
-            System.out.println(e);
-        } finally {
+        boolean cerrar = false;
+        if (txtNombrePerro.getText().equals("") || txtRazaPerro.getText().equals("") || txtColorPerro.getText().equals("")) {
+            JOptionPane.showMessageDialog(rootPane, "Debe rellenar todos los campos");
+        } else {
+            File Y = new File("");
+            File Mascotas = new File("Mascotas.txt");
+            FileWriter fw = null;
             try {
-                if (fw != null) {
-                    fw.close();
+                fw = new FileWriter(Mascotas, true);
+                PrintWriter pw = new PrintWriter(fw);
+                String fechaNacimiento = "";
+                int cedulaDueño = Integer.parseInt(txtCedulaDueño.getText());
+                String nombrePerro = txtNombrePerro.getText();
+                String razaPerro = txtRazaPerro.getText();
+                String colorPerro = txtColorPerro.getText();
+                try {
+                    String dia = Integer.toString(JCFechaN.getCalendar().get(Calendar.DAY_OF_MONTH));
+                    String mes = Integer.toString(JCFechaN.getCalendar().get(Calendar.MONTH));
+                    String año = Integer.toString(JCFechaN.getCalendar().get(Calendar.YEAR));
+                    fechaNacimiento = dia + "/" + mes + "/" + año;
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(rootPane, "Debe elegir una fecha");
                 }
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
+                if (!"".equals(fechaNacimiento)) {
+                    pw.print(cedulaDueño + ";" + nombrePerro + ";" + razaPerro + ";" + colorPerro + ";" + fechaNacimiento + ";");
+                    pw.println();
+                    JOptionPane.showMessageDialog(rootPane, "La mascota se guardo correctamente");
+                    txtCedulaDueño.setText("");
+                    txtNombrePerro.setText("");
+                    txtRazaPerro.setText("");
+                    txtColorPerro.setText("");
+                    cerrar = true;
+                }
+            } catch (IOException e) {
+                System.out.println(e);
+            } finally {
+                try {
+                    if (fw != null) {
+                        fw.close();
+                    }
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+            if (cerrar == true) {
+                cerrar = false;
+                dispose();
             }
         }
-        JOptionPane.showMessageDialog(rootPane, "El archivo se guardo");
-        txtCedulaDueño.setText("");
-        txtNombrePerro.setText("");
-        txtRazaPerro.setText("");
-        txtColorPerro.setText("");
-        dispose();
-        
+
+
     }//GEN-LAST:event_btnAgregarMascotaActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

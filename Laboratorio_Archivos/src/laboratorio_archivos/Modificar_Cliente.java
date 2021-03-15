@@ -212,31 +212,49 @@ public class Modificar_Cliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnModificar_ClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificar_ClienteActionPerformed
+        boolean valido = false;
         for (int i = 0; i < n; i++) {
             if (M[i][0].compareTo(txtCedula_MC.getText()) == 0) {
                 M[i][1] = txtNombre_MC.getText();
                 M[i][2] = txtTelefono_MC.getText();
+                try {    
+                    int telefono =Integer.parseInt(M[i][2]);
+                    valido = true;
+                } catch (Exception e) {
+                    if(!txtNombre_MC.getText().equals("") || !txtDireccion_MC.getText().equals("") || !txtCorreo_MC.getText().equals("")){
+                      JOptionPane.showMessageDialog(rootPane, "El telefono deben ser solo numeros");
+                        
+                    }else{
+                        JOptionPane.showMessageDialog(rootPane, "Debe rellenar todos los campos");
+                    }
+                }
                 M[i][3] = txtDireccion_MC.getText();
                 M[i][4] = txtCorreo_MC.getText();
             }
         }
-        try {
-            limpiar();
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Modificar_Cliente.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        Guardar();
-        Actualizar();
-        TomarDatos();
-        DefaultTableModel model = (DefaultTableModel) tablaModificar.getModel();
-        for (int i = 0; i < n; i++) {
-            if (M[i][0].compareTo(txtCedula_MC.getText()) == 0) {
-                String[] FILA = {M[i][0], M[i][1], M[i][2], M[i][3], M[i][4]};
-                model.addRow(FILA);
-                tablaModificar.setModel(model);
+        if (valido == true && (!txtNombre_MC.getText().equals("") || !txtDireccion_MC.getText().equals("") || !txtCorreo_MC.getText().equals(""))) {
+            try {
+                limpiar();
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(Modificar_Cliente.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            Guardar();
+            Actualizar();
+            TomarDatos();
+            DefaultTableModel model = (DefaultTableModel) tablaModificar.getModel();
+            for (int i = 0; i < n; i++) {
+                if (M[i][0].compareTo(txtCedula_MC.getText()) == 0) {
+                    String[] FILA = {M[i][0], M[i][1], M[i][2], M[i][3], M[i][4]};
+                    model.addRow(FILA);
+                    tablaModificar.setModel(model);
+                }
+            }
+            dispose();
+        }else{
+            if(valido==true){
+                JOptionPane.showMessageDialog(rootPane, "Debe rellenar todos los campos");
             }
         }
-        dispose();
 
     }//GEN-LAST:event_btnModificar_ClienteActionPerformed
 
@@ -306,8 +324,6 @@ public class Modificar_Cliente extends javax.swing.JFrame {
         }
     }
 
-    
-
     void limpiar() throws FileNotFoundException {
         File x = new File("");
         File cliente = new File("Clientes.txt");
@@ -328,7 +344,6 @@ public class Modificar_Cliente extends javax.swing.JFrame {
         }
 
     }
-
 
     int ContarDatos() {
         File x = new File("");
@@ -436,8 +451,6 @@ public class Modificar_Cliente extends javax.swing.JFrame {
         txtDireccion_MC.setText("");
         txtCorreo_MC.setText("");
     }
-
-    
 
     void EscribirDatos() {
         for (int i = 0; i < n; i++) {

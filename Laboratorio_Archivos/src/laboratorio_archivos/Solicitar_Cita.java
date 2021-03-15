@@ -192,7 +192,6 @@ public class Solicitar_Cita extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Agendar();
-        dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -200,86 +199,105 @@ public class Solicitar_Cita extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     void Agendar() {
-        File x = new File("");
-        File Agenda = new File("Agenda.txt");
-        FileWriter fw = null;
-        try {
-            fw = new FileWriter(Agenda, true);
-            PrintWriter pw = new PrintWriter(fw);
-            int cedula = Integer.parseInt(txtCedulaD_AG.getText());
-            String nombre = txtNombreD_AG.getText();
-            String nombrePerro = txtNombreP_AG.getText();
-            String Servicio = (String) jcbServicio.getSelectedItem();
-            String dia = Integer.toString(JDFechaC.getCalendar().get(Calendar.DAY_OF_MONTH));
-            String mes = Integer.toString(JDFechaC.getCalendar().get(Calendar.MONTH));
-            String año = Integer.toString(JDFechaC.getCalendar().get(Calendar.YEAR));
-            String fecha = dia + "/" + mes + "/" + año;
-            System.out.println(fecha);
-            String hora = (String) jcbHora.getSelectedItem();
-            String Estado = "En espera";
-            String Veterinario = "Pendiente";
-            double Valor = 0;
-            if (Servicio.equals("Consulta")) {
-                Valor = 60000;
-            }
-            if (Servicio.equals("Control")) {
-                Valor = 10000;
-            }
-            if (Servicio.equals("Desparasitación")) {
-                Valor = 40000;
-            }
-            if (Servicio.equals("Vacunación")) {
-                Valor = 35000;
-            }
-            if (Servicio.equals("Guardería")) {
-                Valor = 35000;
-            }
-            if (Servicio.equals("Radiología")) {
-                Valor = 100000;
-            }
-            if (Servicio.equals("Baño")) {
-                Valor = 25000;
-            }
-            pw.print(cedula + ";" + nombre + ";" + nombrePerro + ";" + Servicio + ";" + fecha + ";" + hora + ";" + Estado + ";" + Veterinario + ";" + Valor + ";");
-            pw.println();
-        } catch (IOException e) {
-            System.out.println(e);
-        } finally {
+        String fecha = "";
+        if (txtNombreP_AG.getText().equals("")) {
+            JOptionPane.showMessageDialog(rootPane, "Debe rellenar todos los campos");
+        } else if(MascotaExiste(txtNombreP_AG.getText())){
+            File x = new File("");
+            File Agenda = new File("Agenda.txt");
+            FileWriter fw = null;
             try {
-                if (fw != null) {
-                    fw.close();
+                fw = new FileWriter(Agenda, true);
+                PrintWriter pw = new PrintWriter(fw);
+                int cedula = Integer.parseInt(txtCedulaD_AG.getText());
+                String nombre = txtNombreD_AG.getText();
+                String nombrePerro = txtNombreP_AG.getText();
+                String Servicio = (String) jcbServicio.getSelectedItem();
+                try {
+                    String dia = Integer.toString(JDFechaC.getCalendar().get(Calendar.DAY_OF_MONTH));
+                    String mes = Integer.toString(JDFechaC.getCalendar().get(Calendar.MONTH));
+                    String año = Integer.toString(JDFechaC.getCalendar().get(Calendar.YEAR));
+                    fecha = dia + "/" + mes + "/" + año;
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(rootPane, "Debe elegir una fecha");
                 }
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
+                String hora = (String) jcbHora.getSelectedItem();
+                String Estado = "En espera";
+                String Veterinario = "Pendiente";
+                double Valor = 0;
+                if (Servicio.equals("Consulta")) {
+                    Valor = 60000;
+                }
+                if (Servicio.equals("Control")) {
+                    Valor = 10000;
+                }
+                if (Servicio.equals("Desparasitación")) {
+                    Valor = 40000;
+                }
+                if (Servicio.equals("Vacunación")) {
+                    Valor = 35000;
+                }
+                if (Servicio.equals("Guardería")) {
+                    Valor = 35000;
+                }
+                if (Servicio.equals("Radiología")) {
+                    Valor = 100000;
+                }
+                if (Servicio.equals("Baño")) {
+                    Valor = 25000;
+                }
+                if (txtNombreP_AG.getText().equals("")) {
+                    JOptionPane.showMessageDialog(rootPane, "Debe rellenar todos los campos");
+                } else {
+                    if (!fecha.equals("")) {
+                        pw.print(cedula + ";" + nombre + ";" + nombrePerro + ";" + Servicio + ";" + fecha + ";" + hora + ";" + Estado + ";" + Veterinario + ";" + Valor + ";");
+                        pw.println();
+                        JOptionPane.showMessageDialog(rootPane, "Se agendo correctamente");
+                    }
+
+                }
+
+            } catch (IOException e) {
+                System.out.println(e);
+            } finally {
+                try {
+                    if (fw != null) {
+                        fw.close();
+                    }
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
             }
+            if (!txtNombreP_AG.getText().equals("") && !fecha.equals("")) {
+                dispose();
+            }
+        }else{
+            JOptionPane.showMessageDialog(null, "La mascota NO existe");
         }
-        JOptionPane.showMessageDialog(rootPane, "El archivo se guardo");
-
     }
-
-//    public Boolean disponibilidadHorario(String fecha, String Hora) {
-//        String ruta = "C:\\Users\\Jeffrey Felix\\Documents\\GitHub\\Laboratorio_Archivos\\Laboratorio_Archivos"; // ruta para el archivo
-//        String fileName = "Clientes.txt"; // nombre
-//        File archivo = new File(ruta, fileName); // instancia el archivo
-//
-//        try (Scanner sc = new Scanner(archivo)) {
-//            boolean encontrado = false;
-//            while (sc.hasNextLine() && encontrado == false) {
-//                String linea = sc.nextLine();
-//                String data[] = linea.split(";");
-//                int idPersona = Integer.parseInt(data[0]);
-//                String nombre = data[1];
-//                String hora = data[5];
-//
-//                // comparar idBuscar con idPersona
-//                /*comprar y retornar
-//		return data[2]*/
-//            }//fin while
-//        } catch (IOException e) {
-//            System.out.println("Error");
-//        }
-//        return false;
-//    }
+        //    public Boolean disponibilidadHorario(String fecha, String Hora) {
+        //        String ruta = "C:\\Users\\Jeffrey Felix\\Documents\\GitHub\\Laboratorio_Archivos\\Laboratorio_Archivos"; // ruta para el archivo
+        //        String fileName = "Clientes.txt"; // nombre
+        //        File archivo = new File(ruta, fileName); // instancia el archivo
+        //
+        //        try (Scanner sc = new Scanner(archivo)) {
+        //            boolean encontrado = false;
+        //            while (sc.hasNextLine() && encontrado == false) {
+        //                String linea = sc.nextLine();
+        //                String data[] = linea.split(";");
+        //                int idPersona = Integer.parseInt(data[0]);
+        //                String nombre = data[1];
+        //                String hora = data[5];
+        //
+        //                // comparar idBuscar con idPersona
+        //                /*comprar y retornar
+        //		return data[2]*/
+        //            }//fin while
+        //        } catch (IOException e) {
+        //            System.out.println("Error");
+        //        }
+        //        return false;
+        //    }
 
     public Boolean datosDueño(int cedulaIngresada) {
         String ruta = "C:\\Users\\Jeffrey Felix\\Documents\\GitHub\\Laboratorio_Archivos\\Laboratorio_Archivos"; // ruta para el archivo
@@ -311,6 +329,29 @@ public class Solicitar_Cita extends javax.swing.JFrame {
         return false;
     }
 
+    public Boolean MascotaExiste(String m) {
+        String ruta = "C:\\Users\\Jeffrey Felix\\Documents\\GitHub\\Laboratorio_Archivos\\Laboratorio_Archivos"; // ruta para el archivo
+        String fileName = "Mascotas.txt"; // nombre
+        File archivo = new File(ruta, fileName); // instancia el archivo
+
+        try (Scanner sc = new Scanner(archivo)) {
+            boolean encontrado = false;
+            while (sc.hasNextLine() && encontrado == false) {
+                String linea = sc.nextLine();
+                String data[] = linea.split(";");
+                String nombre = data[1];
+                // comparar idBuscar con idPersona
+                /*comprar y retornar
+		return data[2]*/
+                if (m.equals(nombre)) {
+                    return true;
+                }
+            }//fin while
+        } catch (IOException e) {
+            System.out.println("Error");
+        }
+        return false;
+    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

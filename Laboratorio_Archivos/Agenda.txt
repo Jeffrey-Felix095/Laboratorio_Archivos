@@ -1,1 +1,2 @@
-123;El señorito;koko;Consulta;17/2/2021;8:00 AM;En espera;Pendiente;60000.0;
+123;El señorito;koko;Consulta;26/2/2021;10:30 AM;En espera;Pendiente;60000.0;
+123;El señorito;koko;Guardería;21/2/2021;5:30 PM;En espera;Pendiente;40000.0;

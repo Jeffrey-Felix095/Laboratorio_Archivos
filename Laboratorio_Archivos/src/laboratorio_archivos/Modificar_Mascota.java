@@ -65,7 +65,6 @@ public class Modificar_Mascota extends javax.swing.JFrame {
         lolo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lolo.setText("Datos de Mascotas");
 
-        tablaModificarM.setAutoCreateColumnsFromModel(false);
         tablaModificarM.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -210,36 +209,51 @@ public class Modificar_Mascota extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnModificar_ClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificar_ClienteActionPerformed
+        String fecha = "";
+        boolean cerrar = false;
+        boolean valido = false;
         for (int i = 0; i < n; i++) {
             if (M[i][1].compareTo(txtNombrePB.getText()) == 0) {
                 M[i][1] = txtNombreP_MM.getText();
                 M[i][2] = txtRaza_MM.getText();
                 M[i][3] = txtColor_MM.getText();
-                String dia = Integer.toString(JCFechaNN.getCalendar().get(Calendar.DAY_OF_MONTH));
-                String mes = Integer.toString(JCFechaNN.getCalendar().get(Calendar.MONTH));
-                String año = Integer.toString(JCFechaNN.getCalendar().get(Calendar.YEAR));
-                String fecha = dia + "/" + mes + "/" + año;
-                System.out.println(fecha);
-                M[i][4] = fecha;
+                try {
+                    String dia = Integer.toString(JCFechaNN.getCalendar().get(Calendar.DAY_OF_MONTH));
+                    String mes = Integer.toString(JCFechaNN.getCalendar().get(Calendar.MONTH));
+                    String año = Integer.toString(JCFechaNN.getCalendar().get(Calendar.YEAR));
+                    fecha = dia + "/" + mes + "/" + año;
+                    M[i][4] = fecha;
+                    valido = true;
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(rootPane, "Debe elegir una fecha");
+                }
             }
         }
-        try {
-            limpiar();
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Modificar_Cliente.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        Guardar();
-        Actualizar();
-        TomarDatos();
-        DefaultTableModel model = (DefaultTableModel) tablaModificarM.getModel();
-        for (int i = 0; i < n; i++) {
-            if (M[i][1].compareTo(txtNombrePB.getText()) == 0) {
-                String[] FILA = {M[i][0], M[i][1], M[i][2], M[i][3], M[i][4]};
-                model.addRow(FILA);
-                tablaModificarM.setModel(model);
+        if (valido == false) {
+            JOptionPane.showMessageDialog(rootPane, "Debe rellenar todos los campos");
+        } else if (!txtNombreP_MM.getText().equals("") && !txtRaza_MM.getText().equals("") && !txtColor_MM.getText().equals("")) {
+            try {
+                limpiar();
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(Modificar_Cliente.class.getName()).log(Level.SEVERE, null, ex);
             }
+            Guardar();
+            Actualizar();
+            TomarDatos();
+            DefaultTableModel model = (DefaultTableModel) tablaModificarM.getModel();
+            for (int i = 0; i < n; i++) {
+                if (M[i][1].compareTo(txtNombrePB.getText()) == 0) {
+                    String[] FILA = {M[i][0], M[i][1], M[i][2], M[i][3], M[i][4]};
+                    model.addRow(FILA);
+                    tablaModificarM.setModel(model);
+                }
+            }
+            cerrar = true;
         }
-        dispose();
+        if (cerrar == true) {
+            cerrar = false;
+            dispose();
+        }
     }//GEN-LAST:event_btnModificar_ClienteActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
