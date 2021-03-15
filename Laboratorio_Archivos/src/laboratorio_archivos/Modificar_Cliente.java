@@ -12,6 +12,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Calendar;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,6 +28,8 @@ public class Modificar_Cliente extends javax.swing.JFrame {
     int cedula = Cliente.Cedula();
     String[][] M;
     int n;
+    String[][] MA;
+    int nA;
 
     public Modificar_Cliente() {
         initComponents();
@@ -303,6 +306,8 @@ public class Modificar_Cliente extends javax.swing.JFrame {
         }
     }
 
+    
+
     void limpiar() throws FileNotFoundException {
         File x = new File("");
         File cliente = new File("Clientes.txt");
@@ -323,6 +328,7 @@ public class Modificar_Cliente extends javax.swing.JFrame {
         }
 
     }
+
 
     int ContarDatos() {
         File x = new File("");
@@ -430,6 +436,8 @@ public class Modificar_Cliente extends javax.swing.JFrame {
         txtDireccion_MC.setText("");
         txtCorreo_MC.setText("");
     }
+
+    
 
     void EscribirDatos() {
         for (int i = 0; i < n; i++) {

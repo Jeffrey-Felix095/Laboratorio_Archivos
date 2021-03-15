@@ -185,37 +185,62 @@ public class Agregar_Cliente extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        File x = new File("");
-        File Clientes = new File("Clientes.txt");
-        FileWriter fw = null;
-        try {
-            fw = new FileWriter(Clientes, true);
-            PrintWriter pw = new PrintWriter(fw);
-            int cedula = Integer.parseInt(txtCedula_AC.getText());
-            String nombre = txtNombre_AC.getText();
-            int telefono = Integer.parseInt(txtTelefono_AC.getText());
-            String direccion = txtDireccion.getText();
-            String correo = txtCorreo_AC.getText();
-            pw.print(cedula + ";" + nombre + ";" + telefono + ";" + direccion + ";" + correo+";");
-            pw.println();
-        } catch (IOException e) {
-            System.out.println(e);
-        } finally {
+        if (txtCedula_AC.getText().equals("") || txtNombre_AC.getText().equals("") || txtTelefono_AC.getText().equals("") || txtDireccion.getText().equals("") || txtCorreo_AC.getText().equals("")) {
+            JOptionPane.showMessageDialog(rootPane, "Debe rellenar todos los campos");
+        } else {
+            File x = new File("");
+            File Clientes = new File("Clientes.txt");
+            FileWriter fw = null;
             try {
-                if (fw != null) {
-                    fw.close();
+                fw = new FileWriter(Clientes, true);
+                PrintWriter pw = new PrintWriter(fw);
+                int cedula = 0;
+                int telefono = 0;
+                try {
+                    cedula = Integer.parseInt(txtCedula_AC.getText());
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(rootPane, "Debe rellenar la cedula solo con numeros");
                 }
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
+                String nombre = txtNombre_AC.getText();
+                try {
+                    telefono = Integer.parseInt(txtTelefono_AC.getText());
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(rootPane, "Debe rellenar el telefono solo con numeros");
+                }
+                String direccion = txtDireccion.getText();
+                String correo = txtCorreo_AC.getText();
+                if (cedula != 0 && telefono != 0) {
+                    pw.print(cedula + ";" + nombre + ";" + telefono + ";" + direccion + ";" + correo + ";");
+                    pw.println();
+                    JOptionPane.showMessageDialog(rootPane, "El archivo se guardo");
+                    txtCedula_AC.setText("");
+                    txtNombre_AC.setText("");
+                    txtTelefono_AC.setText("");
+                    txtDireccion.setText("");
+                    txtCorreo_AC.setText("");
+                    Cliente pantalla_Cliente = new Cliente();
+                    pantalla_Cliente.setVisible(true);
+                } else {
+                    JOptionPane.showMessageDialog(rootPane, "No se pudo guardar el archivo");
+                    Menu pantalla_1 = new Menu();
+                    pantalla_1.setVisible(true);
+                }
+            } catch (IOException e) {
+                System.out.println(e);
+            } finally {
+                try {
+                    if (fw != null) {
+                        fw.close();
+                    }
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
+
             }
+            dispose();
+
         }
-        JOptionPane.showMessageDialog(rootPane, "El archivo se guardo");
-        txtCedula_AC.setText("");
-        txtNombre_AC.setText("");
-        txtTelefono_AC.setText("");
-        txtDireccion.setText("");
-        txtCorreo_AC.setText("");
-        dispose();
+
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

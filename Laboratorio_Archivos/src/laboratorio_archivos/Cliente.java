@@ -12,6 +12,7 @@ import java.util.Scanner;
 import static javafx.beans.binding.Bindings.and;
 import static javax.management.Query.and;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,8 +20,7 @@ import javax.swing.JLabel;
  */
 public class Cliente extends javax.swing.JFrame {
 
-
-   static int cedula;
+    static int cedula;
 
     public Cliente() {
         initComponents();
@@ -129,14 +129,19 @@ public class Cliente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNuevoClienteActionPerformed
 
     private void btnSiguiente_CActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguiente_CActionPerformed
-        if (validarCliente(Integer.parseInt(txtCedula_Ingreso.getText()))) {
-            cedula = Integer.parseInt(txtCedula_Ingreso.getText());
-            System.out.println(getCedula());
-            Interfaz_Cliente pantalla_interfazC = new Interfaz_Cliente();
-            pantalla_interfazC.setVisible(true);
-            dispose();
+
+        if (txtCedula_Ingreso.getText().equals("")) {
+            JOptionPane.showMessageDialog(rootPane, "Ingrese su documneto de identidad");
         } else {
-            System.out.println("Funciona pero la pusite mal ");
+            if (validarCliente(Integer.parseInt(txtCedula_Ingreso.getText()))) {
+                cedula = Integer.parseInt(txtCedula_Ingreso.getText());
+                System.out.println(getCedula());
+                Interfaz_Cliente pantalla_interfazC = new Interfaz_Cliente();
+                pantalla_interfazC.setVisible(true);
+                dispose();
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Cedula invalida");
+            }
         }
 
     }//GEN-LAST:event_btnSiguiente_CActionPerformed
