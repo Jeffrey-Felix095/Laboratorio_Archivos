@@ -20,6 +20,13 @@ import javax.swing.JOptionPane;
 public class Solicitar_Cita extends javax.swing.JFrame {
 
     int cedula = Cliente.Cedula();
+    int consulta = 0;
+    int control = 0;
+    int desparasitacion = 0;
+    int vacunacion = 0;
+    int guarderia = 0;
+    int radiologia = 0;
+    int baño = 0;
 
     public Solicitar_Cita() {
         initComponents();
@@ -41,12 +48,11 @@ public class Solicitar_Cita extends javax.swing.JFrame {
         txtCedulaD_AG = new javax.swing.JTextField();
         txtNombreD_AG = new javax.swing.JTextField();
         txtNombreP_AG = new javax.swing.JTextField();
-        txtFechaC_AG = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        txtValorEstimado = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         JDFechaC = new com.toedter.calendar.JDateChooser();
+        jcbHora = new javax.swing.JComboBox<>();
 
         jTextField5.setText("jTextField5");
 
@@ -85,10 +91,8 @@ public class Solicitar_Cita extends javax.swing.JFrame {
             }
         });
 
-        txtValorEstimado.setEditable(false);
-
         jLabel7.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
-        jLabel7.setText("Valor estimado:");
+        jLabel7.setText("Hora:");
 
         jButton3.setText("←");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -98,6 +102,8 @@ public class Solicitar_Cita extends javax.swing.JFrame {
         });
 
         JDFechaC.setDateFormatString("dd/MM/yyyy");
+
+        jcbHora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "8:00 AM", "8:30 AM", "9:00 AM", "9:30 AM", "10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM", "12:00", "12:30 PM", "2:00 PM", "2:30 PM", "3:00 PM", "3:30 PM", "4:00 PM", "4:30 PM", "5:00 PM", "5:30 PM" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -110,38 +116,37 @@ public class Solicitar_Cita extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(207, 207, 207))
             .addGroup(layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jcbServicio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtCedulaD_AG, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
-                            .addComponent(txtNombreD_AG)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNombreP_AG))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(JDFechaC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jcbServicio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtCedulaD_AG, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
+                                    .addComponent(txtNombreD_AG)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtNombreP_AG, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtFechaC_AG, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(30, 30, 30)
-                                .addComponent(jLabel7)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtValorEstimado, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)))
+                                .addComponent(JDFechaC, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jcbHora, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(201, 201, 201)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -151,33 +156,35 @@ public class Solicitar_Cita extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3))
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtCedulaD_AG))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNombreD_AG))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNombreP_AG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(9, 9, 9)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jcbServicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(txtFechaC_AG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7)
-                    .addComponent(txtValorEstimado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JDFechaC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(txtCedulaD_AG))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNombreD_AG))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNombreP_AG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(9, 9, 9)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(jcbServicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7)
+                            .addComponent(jcbHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(JDFechaC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(26, 26, 26)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33))
         );
 
         pack();
@@ -206,11 +213,12 @@ public class Solicitar_Cita extends javax.swing.JFrame {
             String dia = Integer.toString(JDFechaC.getCalendar().get(Calendar.DAY_OF_MONTH));
             String mes = Integer.toString(JDFechaC.getCalendar().get(Calendar.MONTH));
             String año = Integer.toString(JDFechaC.getCalendar().get(Calendar.YEAR));
-            String fecha = dia+"/"+mes+"/"+año;
+            String fecha = dia + "/" + mes + "/" + año;
             System.out.println(fecha);
+            String hora = (String) jcbHora.getSelectedItem();
             String Estado = "En espera";
             String Veterinario = "Pendiente";
-            double Valor=0;
+            double Valor = 0;
             if (Servicio.equals("Consulta")) {
                 Valor = 60000;
             }
@@ -232,7 +240,7 @@ public class Solicitar_Cita extends javax.swing.JFrame {
             if (Servicio.equals("Baño")) {
                 Valor = 25000;
             }
-            pw.print(cedula + ";" + nombre + ";" + nombrePerro + ";" + Servicio + ";" + fecha + ";" + Estado + ";" + Veterinario + ";" + Valor + ";");
+            pw.print(cedula + ";" + nombre + ";" + nombrePerro + ";" + Servicio + ";" + fecha + ";" + hora + ";" + Estado + ";" + Veterinario + ";" + Valor + ";");
             pw.println();
         } catch (IOException e) {
             System.out.println(e);
@@ -248,6 +256,30 @@ public class Solicitar_Cita extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(rootPane, "El archivo se guardo");
 
     }
+
+//    public Boolean disponibilidadHorario(String fecha, String Hora) {
+//        String ruta = "C:\\Users\\Jeffrey Felix\\Documents\\GitHub\\Laboratorio_Archivos\\Laboratorio_Archivos"; // ruta para el archivo
+//        String fileName = "Clientes.txt"; // nombre
+//        File archivo = new File(ruta, fileName); // instancia el archivo
+//
+//        try (Scanner sc = new Scanner(archivo)) {
+//            boolean encontrado = false;
+//            while (sc.hasNextLine() && encontrado == false) {
+//                String linea = sc.nextLine();
+//                String data[] = linea.split(";");
+//                int idPersona = Integer.parseInt(data[0]);
+//                String nombre = data[1];
+//                String hora = data[5];
+//
+//                // comparar idBuscar con idPersona
+//                /*comprar y retornar
+//		return data[2]*/
+//            }//fin while
+//        } catch (IOException e) {
+//            System.out.println("Error");
+//        }
+//        return false;
+//    }
 
     public Boolean datosDueño(int cedulaIngresada) {
         String ruta = "C:\\Users\\Jeffrey Felix\\Documents\\GitHub\\Laboratorio_Archivos\\Laboratorio_Archivos"; // ruta para el archivo
@@ -272,7 +304,6 @@ public class Solicitar_Cita extends javax.swing.JFrame {
                     txtNombreD_AG.setText(nombre);
                     return true;
                 }
-
             }//fin while
         } catch (IOException e) {
             System.out.println("Error");
@@ -324,11 +355,10 @@ public class Solicitar_Cita extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JTextField jTextField5;
+    private javax.swing.JComboBox<String> jcbHora;
     private javax.swing.JComboBox<String> jcbServicio;
     private javax.swing.JTextField txtCedulaD_AG;
-    private javax.swing.JTextField txtFechaC_AG;
     private javax.swing.JTextField txtNombreD_AG;
     private javax.swing.JTextField txtNombreP_AG;
-    private javax.swing.JTextField txtValorEstimado;
     // End of variables declaration//GEN-END:variables
 }

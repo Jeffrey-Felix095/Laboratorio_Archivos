@@ -1,4 +1,1 @@
-123;El señor;ppppp;Vacunación;Pa mañana pa;En espera;Pendiente;100000.0;
-123;El señoritro;corto;Vacunación;Pa hoy pa;En espera;Pendiente;35000.0;
-123;El señoritro;ppppp;Control;dd/MM/yyyy;En espera;Pendiente;10000.0;
-123;El señoritro;corto;Vacunación;20/2/2021;En espera;Pendiente;35000.0;
+123;El señoritro;roberto;Baño;24/2/2021;9:30 AM;En espera;Pendiente;25000.0;

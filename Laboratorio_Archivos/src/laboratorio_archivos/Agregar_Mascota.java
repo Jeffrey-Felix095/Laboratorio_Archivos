@@ -19,11 +19,10 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Agregar_Mascota extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Agregar_Mascota
-     */
+   int cedulaDueño = Cliente.Cedula();
     public Agregar_Mascota() {
         initComponents();
+        txtCedulaDueño.setText(Integer.toString(cedulaDueño));
     }
 
     /**
@@ -57,6 +56,8 @@ public class Agregar_Mascota extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel7.setText("Nombre del perro:");
+
+        txtCedulaDueño.setEditable(false);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel8.setText("Raza del perro:");

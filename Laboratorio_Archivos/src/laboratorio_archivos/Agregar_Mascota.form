@@ -125,6 +125,9 @@
     <Component class="javax.swing.JTextField" name="txtNombrePerro">
     </Component>
     <Component class="javax.swing.JTextField" name="txtCedulaDue&#xf1;o">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel8">
       <Properties>

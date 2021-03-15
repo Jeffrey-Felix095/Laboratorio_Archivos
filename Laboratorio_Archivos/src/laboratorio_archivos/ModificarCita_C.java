@@ -30,7 +30,7 @@ public class ModificarCita_C extends javax.swing.JFrame {
 
     public ModificarCita_C() {
         initComponents();
-        String[] columnas = {"Cedula del dueño", "Nombre del dueño", "Nombre del perro", "Servicio", "Fecha de la cita", "Estado", "Veterinario", "valor de servicio"};
+        String[] columnas = {"Cedula del dueño", "Nombre del dueño", "Nombre del perro", "Servicio", "Fecha de la cita", "Hora", "Estado", "Veterinario", "valor de servicio"};
         DefaultTableModel model2 = new DefaultTableModel(columnas, 0);
         TablaCitas.setModel(model2);
         MostrarDatosEnT(cedulaD);
@@ -65,6 +65,7 @@ public class ModificarCita_C extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        TablaCitas.setAutoCreateColumnsFromModel(false);
         TablaCitas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -231,7 +232,7 @@ public class ModificarCita_C extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) TablaCitas.getModel();
         for (int i = 0; i < n; i++) {
             if (M[i][1].compareTo(txtNombreP_AG.getText()) == 0) {
-                String[] FILA = {M[i][0], M[i][1], M[i][2], M[i][3], M[i][4], M[i][5], M[i][6], M[i][7]};
+                String[] FILA = {M[i][0], M[i][1], M[i][2], M[i][3], M[i][4], M[i][5], M[i][6], M[i][7], M[i][8]};
                 model.addRow(FILA);
                 TablaCitas.setModel(model);
             }
@@ -249,9 +250,10 @@ public class ModificarCita_C extends javax.swing.JFrame {
             String nombrePerro = (String) TablaCitas.getValueAt(fila, 2);
             String servicio = (String) TablaCitas.getValueAt(fila, 3);
             String fechaC = (String) TablaCitas.getValueAt(fila, 4);
-            String estado = (String) TablaCitas.getValueAt(fila, 5);
-            String veterinario = (String) TablaCitas.getValueAt(fila, 6);
-            double valor = Double.parseDouble((String) TablaCitas.getValueAt(fila, 7).toString());
+            String hora = (String) TablaCitas.getValueAt(fila, 5);
+            String estado = (String) TablaCitas.getValueAt(fila, 6);
+            String veterinario = (String) TablaCitas.getValueAt(fila, 7);
+            double valor = Double.parseDouble((String) TablaCitas.getValueAt(fila, 8).toString());
             txtCedulaD_AG.setText("" + idDueño);
             txtNombreD_AG.setText(nombreD);
             txtNombreP_AG.setText(nombrePerro);
@@ -263,7 +265,7 @@ public class ModificarCita_C extends javax.swing.JFrame {
         DefaultTableModel Model = (DefaultTableModel) TablaCitas.getModel();
         Model.setRowCount(0);
         for (int i = 0; i < n; i++) {
-            String[] v = {M[i][0], M[i][1], M[i][2], M[i][3], M[i][4], M[i][5], M[i][6], M[i][7]};
+            String[] v = {M[i][0], M[i][1], M[i][2], M[i][3], M[i][4], M[i][5], M[i][6], M[i][7], M[i][8]};
             Model.addRow(v);
             TablaCitas.setModel(Model);
         }
@@ -316,7 +318,7 @@ public class ModificarCita_C extends javax.swing.JFrame {
     void TomarDatos() {
         System.out.println("HOLA");
         n = ContarDatos();
-        M = new String[n][8];
+        M = new String[n][9];
         File x = new File("");
         File agenda = new File("Agenda.txt");
         FileReader fw;
@@ -354,8 +356,11 @@ public class ModificarCita_C extends javax.swing.JFrame {
                             case 6:
                                 M[fila][6] = dato;
                                 break;
-                            default:
+                            case 7:
                                 M[fila][7] = dato;
+                                break;
+                            default:
+                                M[fila][8] = dato;
                                 break;
                         }
                         cont++;
@@ -383,7 +388,7 @@ public class ModificarCita_C extends javax.swing.JFrame {
             fw = new FileWriter(agenda, true);
             PrintWriter pw = new PrintWriter(fw);
             for (int i = 0; i < n; i++) {
-                pw.print(M[i][0] + ";" + M[i][1] + ";" + M[i][2] + ";" + M[i][3] + ";" + M[i][4] + ";" + M[i][5] + ";" + M[i][6] + ";" + M[i][7] + ";");
+                pw.print(M[i][0] + ";" + M[i][1] + ";" + M[i][2] + ";" + M[i][3] + ";" + M[i][4] + ";" + M[i][5] + ";" + M[i][6] + ";" + M[i][7] + ";" + M[i][8] + ";");
                 pw.println();
             }
 
@@ -403,7 +408,7 @@ public class ModificarCita_C extends javax.swing.JFrame {
 
     void EscribirDatos() {
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j < 8; j++) {
+            for (int j = 0; j < 9; j++) {
                 System.out.print(M[i][j] + " -- ");
             }
             System.out.println("");
@@ -427,6 +432,7 @@ public class ModificarCita_C extends javax.swing.JFrame {
                 String nombrePerro = "";
                 String Servicio = "";
                 String fechaCita = "";
+                String hora = "";
                 String estado = "";
                 String veterinario = "";
                 double valor = 0;
@@ -453,12 +459,15 @@ public class ModificarCita_C extends javax.swing.JFrame {
                                 fechaCita = dato;
                                 break;
                             case 5:
-                                estado = dato;
+                                hora = dato;
                                 break;
                             case 6:
-                                veterinario = dato;
+                                estado = dato;
                                 break;
                             case 7:
+                                veterinario = dato;
+                                break;
+                            case 8:
                                 valor = Double.parseDouble(dato);
                                 break;
                         }
@@ -467,7 +476,7 @@ public class ModificarCita_C extends javax.swing.JFrame {
                     }
                 }
                 if (cedulaDueño == id) {
-                    String Datos[] = {String.valueOf(cedulaDueño), nombreDueño, nombrePerro, Servicio, fechaCita, estado, veterinario, String.valueOf(valor)};
+                    String Datos[] = {String.valueOf(cedulaDueño), nombreDueño, nombrePerro, Servicio, fechaCita, hora, estado, veterinario, String.valueOf(valor)};
                     model.addRow(Datos);
                     TablaCitas.setModel(model);
                 }

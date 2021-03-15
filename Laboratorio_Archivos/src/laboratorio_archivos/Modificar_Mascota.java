@@ -65,6 +65,7 @@ public class Modificar_Mascota extends javax.swing.JFrame {
         lolo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lolo.setText("Datos de Mascotas");
 
+        tablaModificarM.setAutoCreateColumnsFromModel(false);
         tablaModificarM.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
