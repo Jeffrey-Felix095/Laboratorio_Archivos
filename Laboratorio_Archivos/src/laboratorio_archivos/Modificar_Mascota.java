@@ -12,6 +12,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Calendar;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -47,7 +48,6 @@ public class Modificar_Mascota extends javax.swing.JFrame {
         txtNombreP_MM = new javax.swing.JTextField();
         txtCedula_MC = new javax.swing.JTextField();
         btnModificar_Cliente = new javax.swing.JButton();
-        txtFechaN_MM = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -57,6 +57,7 @@ public class Modificar_Mascota extends javax.swing.JFrame {
         txtNombrePB = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
+        JCFechaNN = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -136,7 +137,7 @@ public class Modificar_Mascota extends javax.swing.JFrame {
                                         .addGap(138, 138, 138)
                                         .addComponent(jLabel12)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtFechaN_MM, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(JCFechaNN, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel11)
@@ -196,12 +197,12 @@ public class Modificar_Mascota extends javax.swing.JFrame {
                     .addComponent(jLabel10)
                     .addComponent(txtColor_MM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel12)
-                    .addComponent(txtFechaN_MM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JCFechaNN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnModificar_Cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         pack();
@@ -213,7 +214,12 @@ public class Modificar_Mascota extends javax.swing.JFrame {
                 M[i][1] = txtNombreP_MM.getText();
                 M[i][2] = txtRaza_MM.getText();
                 M[i][3] = txtColor_MM.getText();
-                M[i][4] = txtFechaN_MM.getText();
+                String dia = Integer.toString(JCFechaNN.getCalendar().get(Calendar.DAY_OF_MONTH));
+                String mes = Integer.toString(JCFechaNN.getCalendar().get(Calendar.MONTH));
+                String año = Integer.toString(JCFechaNN.getCalendar().get(Calendar.YEAR));
+                String fecha = dia + "/" + mes + "/" + año;
+                System.out.println(fecha);
+                M[i][4] = fecha;
             }
         }
         try {
@@ -258,7 +264,6 @@ public class Modificar_Mascota extends javax.swing.JFrame {
         txtNombreP_MM.setText(M[i][1]);
         txtRaza_MM.setText(M[i][2]);
         txtColor_MM.setText(M[i][3]);
-        txtFechaN_MM.setText(M[i][4]);
     }
 
     void Actualizar() {
@@ -396,7 +401,6 @@ public class Modificar_Mascota extends javax.swing.JFrame {
         txtNombreP_MM.setText("");
         txtRaza_MM.setText("");
         txtColor_MM.setText("");
-        txtFechaN_MM.setText("");
     }
 
     void EscribirDatos() {
@@ -441,6 +445,7 @@ public class Modificar_Mascota extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.toedter.calendar.JDateChooser JCFechaNN;
     private javax.swing.JButton btnModificar_Cliente;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
@@ -455,7 +460,6 @@ public class Modificar_Mascota extends javax.swing.JFrame {
     private javax.swing.JTable tablaModificarM;
     private javax.swing.JTextField txtCedula_MC;
     private javax.swing.JTextField txtColor_MM;
-    private javax.swing.JTextField txtFechaN_MM;
     private javax.swing.JTextField txtNombrePB;
     private javax.swing.JTextField txtNombreP_MM;
     private javax.swing.JTextField txtRaza_MM;

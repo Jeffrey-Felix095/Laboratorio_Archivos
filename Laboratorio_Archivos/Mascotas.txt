@@ -1,10 +1,5 @@
-1234;lolo;gua;rojo;null;
-1234;roberto;De los que muerden;negro como tu alma;null;
-1234;gffgdh;shsgh;sghsg;null;
-987;kakaka;perro;azul;null;
-987;gggggg;rthyrh;frgdfh;null;
-987;gfjgfhjgfh;fjfgjf;rtydh;null;
-987;jojo;koko;roro;hoy;
 123;ppppp;kkkk;dsgdfgd;sfgsfsadfsd;
 123;wilfrido;de los que muerden;moreno;ayer;
 1001047658;guauguau;r;cafe;f;
+123;corto;miau;verde;18/2/2021;
+123;JOJO;O;O;1/2/2021;

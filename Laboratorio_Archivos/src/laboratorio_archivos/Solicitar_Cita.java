@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Calendar;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 
@@ -45,6 +46,7 @@ public class Solicitar_Cita extends javax.swing.JFrame {
         txtValorEstimado = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
+        JDFechaC = new com.toedter.calendar.JDateChooser();
 
         jTextField5.setText("jTextField5");
 
@@ -95,10 +97,18 @@ public class Solicitar_Cita extends javax.swing.JFrame {
             }
         });
 
+        JDFechaC.setDateFormatString("dd/MM/yyyy");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 151, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(207, 207, 207))
             .addGroup(layout.createSequentialGroup()
                 .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -120,7 +130,10 @@ public class Solicitar_Cita extends javax.swing.JFrame {
                         .addComponent(txtNombreP_AG))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(JDFechaC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -130,12 +143,6 @@ public class Solicitar_Cita extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtValorEstimado, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 151, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(207, 207, 207))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -167,8 +174,10 @@ public class Solicitar_Cita extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addComponent(txtValorEstimado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JDFechaC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27))
         );
 
         pack();
@@ -194,7 +203,11 @@ public class Solicitar_Cita extends javax.swing.JFrame {
             String nombre = txtNombreD_AG.getText();
             String nombrePerro = txtNombreP_AG.getText();
             String Servicio = (String) jcbServicio.getSelectedItem();
-            String Fecha = txtFechaC_AG.getText();
+            String dia = Integer.toString(JDFechaC.getCalendar().get(Calendar.DAY_OF_MONTH));
+            String mes = Integer.toString(JDFechaC.getCalendar().get(Calendar.MONTH));
+            String año = Integer.toString(JDFechaC.getCalendar().get(Calendar.YEAR));
+            String fecha = dia+"/"+mes+"/"+año;
+            System.out.println(fecha);
             String Estado = "En espera";
             String Veterinario = "Pendiente";
             double Valor=0;
@@ -219,7 +232,7 @@ public class Solicitar_Cita extends javax.swing.JFrame {
             if (Servicio.equals("Baño")) {
                 Valor = 25000;
             }
-            pw.print(cedula + ";" + nombre + ";" + nombrePerro + ";" + Servicio + ";" + Fecha + ";" + Estado + ";" + Veterinario + ";" + Valor + ";");
+            pw.print(cedula + ";" + nombre + ";" + nombrePerro + ";" + Servicio + ";" + fecha + ";" + Estado + ";" + Veterinario + ";" + Valor + ";");
             pw.println();
         } catch (IOException e) {
             System.out.println(e);
@@ -300,6 +313,7 @@ public class Solicitar_Cita extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.toedter.calendar.JDateChooser JDFechaC;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
