@@ -73,6 +73,11 @@ public class Modificar_Mascota extends javax.swing.JFrame {
 
             }
         ));
+        tablaModificarM.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tablaModificarMMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tablaModificarM);
 
         txtCedula_MC.setEditable(false);
@@ -273,6 +278,10 @@ public class Modificar_Mascota extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void tablaModificarMMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablaModificarMMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tablaModificarMMouseClicked
 
     void plasmar(int i) {
         txtCedula_MC.setText(M[i][0]);

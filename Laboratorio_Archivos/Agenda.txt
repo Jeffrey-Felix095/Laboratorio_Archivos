@@ -1,2 +1,3 @@
-123;El señorito;koko;Consulta;26/2/2021;10:30 AM;En espera;Pendiente;60000.0;
-123;El señorito;koko;Guardería;21/2/2021;5:30 PM;En espera;Pendiente;40000.0;
+123;El señorito;koko;Control;18/2/2021;9:30 AM;Atendida;10000.0;
+123;El señorito;koko;Vacunación;18/2/2021;11:30 AM;Atendida;35000.0;
+123;El señorito;koko;Consulta;26/2/2021;9:00 AM;Atendida;60000.0;

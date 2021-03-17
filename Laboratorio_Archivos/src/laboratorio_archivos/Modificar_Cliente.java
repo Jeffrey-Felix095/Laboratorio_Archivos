@@ -421,6 +421,10 @@ public class Modificar_Cliente extends javax.swing.JFrame {
         }
     }
 
+    void cruceArchivos(){
+        
+    }
+    
     void Guardar() {
         File x = new File("");
         File Clientes = new File("Clientes.txt");

@@ -33,7 +33,7 @@ public class ModificarCita_C extends javax.swing.JFrame {
 
     public ModificarCita_C() {
         initComponents();
-        String[] columnas = {"Cedula del dueño", "Nombre del dueño", "Nombre del perro", "Servicio", "Fecha de la cita", "Hora", "Estado", "Veterinario", "valor de servicio"};
+        String[] columnas = {"Cedula del dueño", "Nombre del dueño", "Nombre del perro", "Servicio", "Fecha de la cita", "Hora", "Estado", "valor de servicio"};
         DefaultTableModel model2 = new DefaultTableModel(columnas, 0);
         TablaCitas.setModel(model2);
         MostrarDatosEnT(cedulaD);
@@ -207,13 +207,12 @@ public class ModificarCita_C extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel6)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(txtValorEstimado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel8)
-                                .addComponent(jcbHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jLabel8)
+                        .addComponent(jcbHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel7)
+                        .addComponent(txtValorEstimado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel6)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(11, 11, 11)
                         .addComponent(JCFechaCN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -259,7 +258,7 @@ public class ModificarCita_C extends javax.swing.JFrame {
                 DefaultTableModel model = (DefaultTableModel) TablaCitas.getModel();
                 for (int i = 0; i < n; i++) {
                     if (M[i][4].compareTo(fechaAnterior) == 0 && M[i][5].compareTo(horaAnterior) == 0) {
-                        String[] FILA = {M[i][0], M[i][1], M[i][2], M[i][3], M[i][4], M[i][5], M[i][6], M[i][7], M[i][8], M[i][9]};
+                        String[] FILA = {M[i][0], M[i][1], M[i][2], M[i][3], M[i][4], M[i][5], M[i][6], M[i][7]};
                         model.addRow(FILA);
                         TablaCitas.setModel(model);
                     }
@@ -289,8 +288,7 @@ public class ModificarCita_C extends javax.swing.JFrame {
             fechaAnterior = (String) TablaCitas.getValueAt(fila, 4);
             horaAnterior = (String) TablaCitas.getValueAt(fila, 5);
             String estado = (String) TablaCitas.getValueAt(fila, 6);
-            String veterinario = (String) TablaCitas.getValueAt(fila, 7);
-            double valor = Double.parseDouble((String) TablaCitas.getValueAt(fila, 8).toString());
+            double valor = Double.parseDouble((String) TablaCitas.getValueAt(fila, 7).toString());
             txtCedulaD_AG.setText("" + idDueño);
             txtNombreD_AG.setText(nombreD);
             txtNombreP_AG.setText(nombrePerro);
@@ -302,7 +300,7 @@ public class ModificarCita_C extends javax.swing.JFrame {
         DefaultTableModel Model = (DefaultTableModel) TablaCitas.getModel();
         Model.setRowCount(0);
         for (int i = 0; i < n; i++) {
-            String[] v = {M[i][0], M[i][1], M[i][2], M[i][3], M[i][4], M[i][5], M[i][6], M[i][7], M[i][8]};
+            String[] v = {M[i][0], M[i][1], M[i][2], M[i][3], M[i][4], M[i][5], M[i][6], M[i][7]};
             Model.addRow(v);
             TablaCitas.setModel(Model);
         }
@@ -355,7 +353,7 @@ public class ModificarCita_C extends javax.swing.JFrame {
     void TomarDatos() {
         System.out.println("HOLA");
         n = ContarDatos();
-        M = new String[n][9];
+        M = new String[n][8];
         File x = new File("");
         File agenda = new File("Agenda.txt");
         FileReader fw;
@@ -396,9 +394,6 @@ public class ModificarCita_C extends javax.swing.JFrame {
                             case 7:
                                 M[fila][7] = dato;
                                 break;
-                            case 8:
-                                M[fila][8] = dato;
-                                break;
                         }
                         cont++;
                         dato = "";
@@ -425,7 +420,7 @@ public class ModificarCita_C extends javax.swing.JFrame {
             fw = new FileWriter(agenda, true);
             PrintWriter pw = new PrintWriter(fw);
             for (int i = 0; i < n; i++) {
-                pw.print(M[i][0] + ";" + M[i][1] + ";" + M[i][2] + ";" + M[i][3] + ";" + M[i][4] + ";" + M[i][5] + ";" + M[i][6] + ";" + M[i][7] + ";" + M[i][8] + ";");
+                pw.print(M[i][0] + ";" + M[i][1] + ";" + M[i][2] + ";" + M[i][3] + ";" + M[i][4] + ";" + M[i][5] + ";" + M[i][6] + ";" + M[i][7] + ";");
                 pw.println();
             }
 
@@ -445,7 +440,7 @@ public class ModificarCita_C extends javax.swing.JFrame {
 
     void EscribirDatos() {
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j < 9; j++) {
+            for (int j = 0; j < 8; j++) {
                 System.out.print(M[i][j] + " -- ");
             }
             System.out.println("");
@@ -471,7 +466,6 @@ public class ModificarCita_C extends javax.swing.JFrame {
                 String fechaCita = "";
                 String hora = "";
                 String estado = "";
-                String veterinario = "";
                 double valor = 0;
 
                 int cont = 0;
@@ -502,9 +496,6 @@ public class ModificarCita_C extends javax.swing.JFrame {
                                 estado = dato;
                                 break;
                             case 7:
-                                veterinario = dato;
-                                break;
-                            case 8:
                                 valor = Double.parseDouble(dato);
                                 break;
                         }
@@ -513,7 +504,7 @@ public class ModificarCita_C extends javax.swing.JFrame {
                     }
                 }
                 if (cedulaDueño == id) {
-                    String Datos[] = {String.valueOf(cedulaDueño), nombreDueño, nombrePerro, Servicio, fechaCita, hora, estado, veterinario, String.valueOf(valor)};
+                    String Datos[] = {String.valueOf(cedulaDueño), nombreDueño, nombrePerro, Servicio, fechaCita, hora, estado, String.valueOf(valor)};
                     model.addRow(Datos);
                     TablaCitas.setModel(model);
                 }

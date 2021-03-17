@@ -30,7 +30,7 @@ public class Interfaz_Cliente extends javax.swing.JFrame {
         DefaultTableModel model = new DefaultTableModel(column, 0);
         TablaMascotas.setModel(model);
         MostrarDatosEnT(cedulaD);
-        String[] columnas = {"Cedula del dueño", "Nombre del dueño", "Nombre del perro", "Servicio", "Fecha de la cita","Hora", "Estado", "Veterinario","Valor de Servicio"};
+        String[] columnas = {"Cedula del dueño", "Nombre del dueño", "Nombre del perro", "Servicio", "Fecha de la cita","Hora", "Estado", "Valor de Servicio"};
         DefaultTableModel model2 = new DefaultTableModel(columnas, 0);
         TablaCitas.setModel(model2);
         MostrarCitas(cedulaD);
@@ -341,7 +341,7 @@ public class Interfaz_Cliente extends javax.swing.JFrame {
         TablaMascotas.setModel(model);
         MostrarDatosEnT(cedulaD);
         mostrarDatos(cedulaD);
-        String[] columnas = {"Cedula del dueño", "Nombre del dueño", "Nombre del perro", "Servicio", "Fecha de la cita","Hora", "Estado", "Veterinario","Valor de se   rvicio"};
+        String[] columnas = {"Cedula del dueño", "Nombre del dueño", "Nombre del perro", "Servicio", "Fecha de la cita","Hora", "Estado","Valor de se   rvicio"};
         DefaultTableModel model2 = new DefaultTableModel(columnas, 0);
         TablaCitas.setModel(model2);
         MostrarCitas(cedulaD);
@@ -505,7 +505,6 @@ public class Interfaz_Cliente extends javax.swing.JFrame {
                 String fechaCita = "";
                 String hora ="";
                 String estado = "";
-                String veterinario = "";
                 double valor = 0;
 
                 int cont = 0;
@@ -536,9 +535,6 @@ public class Interfaz_Cliente extends javax.swing.JFrame {
                                 estado = dato;
                                 break;
                             case 7:
-                                veterinario = dato;
-                                break;
-                            case 8:
                                 valor = Double.parseDouble(dato);
                                 break;
                         }
@@ -547,7 +543,7 @@ public class Interfaz_Cliente extends javax.swing.JFrame {
                     }
                 }
                 if (cedulaDueño == id) {
-                    String Datos[] = {String.valueOf(cedulaDueño), nombreDueño, nombrePerro, servicio, fechaCita,hora, estado, veterinario,String.valueOf(valor)};
+                    String Datos[] = {String.valueOf(cedulaDueño), nombreDueño, nombrePerro, servicio, fechaCita,hora, estado,String.valueOf(valor)};
                     model.addRow(Datos);
                     TablaCitas.setModel(model);
                 }

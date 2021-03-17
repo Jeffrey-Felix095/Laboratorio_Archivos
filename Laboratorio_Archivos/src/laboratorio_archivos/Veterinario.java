@@ -5,15 +5,19 @@
  */
 package laboratorio_archivos;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
+import javax.swing.JOptionPane;
+import static laboratorio_archivos.Cliente.cedula;
+
 /**
  *
  * @author Jeffrey Felix
  */
 public class Veterinario extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Veterinario
-     */
+   static int cedulaV;
     public Veterinario() {
         initComponents();
     }
@@ -27,22 +31,164 @@ public class Veterinario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        btnSiguiente_C = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        btnNuevoCliente = new javax.swing.JButton();
+        txtCedula_IngresoV = new javax.swing.JTextField();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("SimSun", 0, 18)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Cedula de veterinario");
+
+        btnSiguiente_C.setText("Siguiente");
+        btnSiguiente_C.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSiguiente_CActionPerformed(evt);
+            }
+        });
+
+        jButton8.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
+        jButton8.setText("←");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
+        btnNuevoCliente.setText("Nuevo veterinario");
+        btnNuevoCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevoClienteActionPerformed(evt);
+            }
+        });
+
+        txtCedula_IngresoV.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCedula_IngresoVActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(287, Short.MAX_VALUE)
+                        .addComponent(btnNuevoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtCedula_IngresoV, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(36, 36, 36)
+                                .addComponent(btnSiguiente_C)))
+                        .addGap(170, 170, 170))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(150, 150, 150))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtCedula_IngresoV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addComponent(btnSiguiente_C)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnNuevoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnSiguiente_CActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguiente_CActionPerformed
+
+        if (txtCedula_IngresoV.getText().equals("")) {
+            JOptionPane.showMessageDialog(rootPane, "Ingrese su documneto de identidad");
+        } else {
+            if (validarVeterinario(Integer.parseInt(txtCedula_IngresoV.getText()))) {
+                cedulaV = Integer.parseInt(txtCedula_IngresoV.getText());
+                System.out.println(getCedulaV());
+                Interface_Veterinario pantalla_interface = new Interface_Veterinario();
+                pantalla_interface.setVisible(true);
+                dispose();
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Cedula invalida");
+            }
+        }
+    }//GEN-LAST:event_btnSiguiente_CActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        Menu pantalla_1 = new Menu();
+        pantalla_1.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void btnNuevoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoClienteActionPerformed
+        Agregar_Veterinario pantalla_NVeterinario = new Agregar_Veterinario();
+        pantalla_NVeterinario.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btnNuevoClienteActionPerformed
+
+    private void txtCedula_IngresoVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedula_IngresoVActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCedula_IngresoVActionPerformed
+
+    public static int getCedulaV() {
+        return cedulaV;
+    }
+
+    public static void setCedulaV(int cedulaV) {
+        Veterinario.cedulaV = cedulaV;
+    }
+
+    
+     public static Boolean validarVeterinario(int cedulaIngresada) {
+        String ruta = "C:\\Users\\Jeffrey Felix\\Documents\\GitHub\\Laboratorio_Archivos\\Laboratorio_Archivos"; // ruta para el archivo
+        String fileName = "Veterinarios.txt"; // nombre
+        File archivo = new File(ruta, fileName); // instancia el archivo
+
+        try (Scanner sc = new Scanner(archivo)) {
+            boolean encontrado = false;
+            while (sc.hasNextLine() && encontrado == false) {
+                String linea = sc.nextLine();
+                String data[] = linea.split(";");
+                int idPersona = Integer.parseInt(data[0]);
+                String nombre = data[1];
+                int telefono = Integer.parseInt(data[2]);
+                String direccion = data[3];
+                String correo = data[4];
+                // comparar idBuscar con idPersona
+                /*comprar y retornar
+		return data[2]*/
+                if (cedulaIngresada == idPersona) {
+                    return true;
+                }
+
+            }//fin while
+        } catch (IOException e) {
+            System.out.println("Error");
+        }
+        return false;
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -79,5 +225,10 @@ public class Veterinario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnNuevoCliente;
+    private javax.swing.JButton btnSiguiente_C;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JTextField txtCedula_IngresoV;
     // End of variables declaration//GEN-END:variables
 }

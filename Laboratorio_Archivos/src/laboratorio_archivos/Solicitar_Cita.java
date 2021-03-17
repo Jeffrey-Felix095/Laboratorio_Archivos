@@ -27,6 +27,8 @@ public class Solicitar_Cita extends javax.swing.JFrame {
     int guarderia = 0;
     int radiologia = 0;
     int baño = 0;
+    String fecha = "";
+    String hora = "";
 
     public Solicitar_Cita() {
         initComponents();
@@ -199,10 +201,10 @@ public class Solicitar_Cita extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     void Agendar() {
-        String fecha = "";
+
         if (txtNombreP_AG.getText().equals("")) {
             JOptionPane.showMessageDialog(rootPane, "Debe rellenar todos los campos");
-        } else if(MascotaExiste(txtNombreP_AG.getText())){
+        } else if (MascotaExiste(txtNombreP_AG.getText())) {
             File x = new File("");
             File Agenda = new File("Agenda.txt");
             FileWriter fw = null;
@@ -221,9 +223,8 @@ public class Solicitar_Cita extends javax.swing.JFrame {
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(rootPane, "Debe elegir una fecha");
                 }
-                String hora = (String) jcbHora.getSelectedItem();
+                hora = (String) jcbHora.getSelectedItem();
                 String Estado = "En espera";
-                String Veterinario = "Pendiente";
                 double Valor = 0;
                 if (Servicio.equals("Consulta")) {
                     Valor = 60000;
@@ -250,11 +251,12 @@ public class Solicitar_Cita extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(rootPane, "Debe rellenar todos los campos");
                 } else {
                     if (!fecha.equals("")) {
-                        pw.print(cedula + ";" + nombre + ";" + nombrePerro + ";" + Servicio + ";" + fecha + ";" + hora + ";" + Estado + ";" + Veterinario + ";" + Valor + ";");
+                        if( disponibilidadHorario(fecha, hora)){
+                        pw.print(cedula + ";" + nombre + ";" + nombrePerro + ";" + Servicio + ";" + fecha + ";" + hora + ";" + Estado + ";" + Valor + ";");
                         pw.println();
                         JOptionPane.showMessageDialog(rootPane, "Se agendo correctamente");
+                        }
                     }
-
                 }
 
             } catch (IOException e) {
@@ -271,33 +273,45 @@ public class Solicitar_Cita extends javax.swing.JFrame {
             if (!txtNombreP_AG.getText().equals("") && !fecha.equals("")) {
                 dispose();
             }
-        }else{
+        } else {
             JOptionPane.showMessageDialog(null, "La mascota NO existe");
         }
     }
-        //    public Boolean disponibilidadHorario(String fecha, String Hora) {
-        //        String ruta = "C:\\Users\\Jeffrey Felix\\Documents\\GitHub\\Laboratorio_Archivos\\Laboratorio_Archivos"; // ruta para el archivo
-        //        String fileName = "Clientes.txt"; // nombre
-        //        File archivo = new File(ruta, fileName); // instancia el archivo
-        //
-        //        try (Scanner sc = new Scanner(archivo)) {
-        //            boolean encontrado = false;
-        //            while (sc.hasNextLine() && encontrado == false) {
-        //                String linea = sc.nextLine();
-        //                String data[] = linea.split(";");
-        //                int idPersona = Integer.parseInt(data[0]);
-        //                String nombre = data[1];
-        //                String hora = data[5];
-        //
-        //                // comparar idBuscar con idPersona
-        //                /*comprar y retornar
-        //		return data[2]*/
-        //            }//fin while
-        //        } catch (IOException e) {
-        //            System.out.println("Error");
-        //        }
-        //        return false;
-        //    }
+
+    public Boolean disponibilidadHorario(String fecha, String hora) {
+        String ruta = "C:\\Users\\Jeffrey Felix\\Documents\\GitHub\\Laboratorio_Archivos\\Laboratorio_Archivos"; // ruta para el archivo
+        String fileName = "Agenda.txt"; // nombre
+        File archivo = new File(ruta, fileName); // instancia el archivo
+
+        try (Scanner sc = new Scanner(archivo)) {
+            boolean disponible = true;
+            String nombreDia = String.valueOf(JDFechaC.getDate()).substring(0, 3);
+            System.out.println(nombreDia);
+            while (sc.hasNextLine() && disponible == true) {
+                String linea = sc.nextLine();
+                String data[] = linea.split(";");
+                int idPersona = Integer.parseInt(data[0]);
+                String fechaCita = data[4];
+                String horaCita = data[5];
+
+                // comparar idBuscar con idPersona
+                /*comprar y retornar
+        		return data[2]*/
+                if (fechaCita.equals(fecha) && horaCita.equals(hora)) {
+                    disponible = false;
+                    JOptionPane.showMessageDialog(null, "Por favor elija otra hora, esta ya esta reservada");
+                    return false;
+                }
+            }//fin while
+            if (nombreDia.equals("Sun") || nombreDia.equals("Sat")) {
+                JOptionPane.showMessageDialog(null, "Los dias sabado y domingo los veterinarios no trabajan");
+                return false;
+            }
+        } catch (IOException e) {
+            System.out.println("Error");
+        }
+        return true;
+    }
 
     public Boolean datosDueño(int cedulaIngresada) {
         String ruta = "C:\\Users\\Jeffrey Felix\\Documents\\GitHub\\Laboratorio_Archivos\\Laboratorio_Archivos"; // ruta para el archivo
@@ -352,6 +366,7 @@ public class Solicitar_Cita extends javax.swing.JFrame {
         }
         return false;
     }
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
