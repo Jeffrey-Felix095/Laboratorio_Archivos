@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDate;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -162,6 +163,9 @@ public class Agregar_Mascota extends javax.swing.JFrame {
             File Y = new File("");
             File Mascotas = new File("Mascotas.txt");
             FileWriter fw = null;
+            String dia = "";
+            String mes = "";
+            String año = "";
             try {
                 fw = new FileWriter(Mascotas, true);
                 PrintWriter pw = new PrintWriter(fw);
@@ -171,22 +175,50 @@ public class Agregar_Mascota extends javax.swing.JFrame {
                 String razaPerro = txtRazaPerro.getText();
                 String colorPerro = txtColorPerro.getText();
                 try {
-                    String dia = Integer.toString(JCFechaN.getCalendar().get(Calendar.DAY_OF_MONTH));
-                    String mes = Integer.toString(JCFechaN.getCalendar().get(Calendar.MONTH));
-                    String año = Integer.toString(JCFechaN.getCalendar().get(Calendar.YEAR));
+                    dia = Integer.toString(JCFechaN.getCalendar().get(Calendar.DAY_OF_MONTH));
+                    mes = Integer.toString(JCFechaN.getCalendar().get(Calendar.MONTH)+1);
+                    año = Integer.toString(JCFechaN.getCalendar().get(Calendar.YEAR));
                     fechaNacimiento = dia + "/" + mes + "/" + año;
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(rootPane, "Debe elegir una fecha");
                 }
                 if (!"".equals(fechaNacimiento)) {
-                    pw.print(cedulaDueño + ";" + nombrePerro + ";" + razaPerro + ";" + colorPerro + ";" + fechaNacimiento + ";");
-                    pw.println();
-                    JOptionPane.showMessageDialog(rootPane, "La mascota se guardo correctamente");
-                    txtCedulaDueño.setText("");
-                    txtNombrePerro.setText("");
-                    txtRazaPerro.setText("");
-                    txtColorPerro.setText("");
-                    cerrar = true;
+                    int diaActual = LocalDate.now().getDayOfMonth();
+                    int mesActual = LocalDate.now().getMonthValue();
+                    int AAActual = LocalDate.now().getYear();
+                    if (Integer.parseInt(año) < AAActual) {
+                        pw.print(cedulaDueño + ";" + nombrePerro + ";" + razaPerro + ";" + colorPerro + ";" + fechaNacimiento + ";");
+                        pw.println();
+                        JOptionPane.showMessageDialog(rootPane, "La mascota se guardo correctamente");
+                        txtCedulaDueño.setText("");
+                        txtNombrePerro.setText("");
+                        txtRazaPerro.setText("");
+                        txtColorPerro.setText("");
+                        cerrar = true;
+                    } else {
+                        if (Integer.parseInt(mes) < mesActual) {
+                            pw.print(cedulaDueño + ";" + nombrePerro + ";" + razaPerro + ";" + colorPerro + ";" + fechaNacimiento + ";");
+                            pw.println();
+                            JOptionPane.showMessageDialog(rootPane, "La mascota se guardo correctamente");
+                            txtCedulaDueño.setText("");
+                            txtNombrePerro.setText("");
+                            txtRazaPerro.setText("");
+                            txtColorPerro.setText("");
+                            cerrar = true;
+                        } else if (Integer.parseInt(dia) <= diaActual) {
+                            pw.print(cedulaDueño + ";" + nombrePerro + ";" + razaPerro + ";" + colorPerro + ";" + fechaNacimiento + ";");
+                            pw.println();
+                            JOptionPane.showMessageDialog(rootPane, "La mascota se guardo correctamente");
+                            txtCedulaDueño.setText("");
+                            txtNombrePerro.setText("");
+                            txtRazaPerro.setText("");
+                            txtColorPerro.setText("");
+                            cerrar = true;
+                        } else {
+                            JOptionPane.showMessageDialog(rootPane, "Fecha invalida");
+                        }
+                    }
+
                 }
             } catch (IOException e) {
                 System.out.println(e);

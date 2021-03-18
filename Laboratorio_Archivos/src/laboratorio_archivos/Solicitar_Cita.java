@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
@@ -208,6 +209,9 @@ public class Solicitar_Cita extends javax.swing.JFrame {
             File x = new File("");
             File Agenda = new File("Agenda.txt");
             FileWriter fw = null;
+            String dia = "";
+            String mes = "";
+            String año = "";
             try {
                 fw = new FileWriter(Agenda, true);
                 PrintWriter pw = new PrintWriter(fw);
@@ -216,9 +220,9 @@ public class Solicitar_Cita extends javax.swing.JFrame {
                 String nombrePerro = txtNombreP_AG.getText();
                 String Servicio = (String) jcbServicio.getSelectedItem();
                 try {
-                    String dia = Integer.toString(JDFechaC.getCalendar().get(Calendar.DAY_OF_MONTH));
-                    String mes = Integer.toString(JDFechaC.getCalendar().get(Calendar.MONTH));
-                    String año = Integer.toString(JDFechaC.getCalendar().get(Calendar.YEAR));
+                    dia = Integer.toString(JDFechaC.getCalendar().get(Calendar.DAY_OF_MONTH));
+                    mes = Integer.toString(JDFechaC.getCalendar().get(Calendar.MONTH)+1);
+                    año = Integer.toString(JDFechaC.getCalendar().get(Calendar.YEAR));
                     fecha = dia + "/" + mes + "/" + año;
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(rootPane, "Debe elegir una fecha");
@@ -251,11 +255,27 @@ public class Solicitar_Cita extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(rootPane, "Debe rellenar todos los campos");
                 } else {
                     if (!fecha.equals("")) {
-                        if( disponibilidadHorario(fecha, hora)){
-                        pw.print(cedula + ";" + nombre + ";" + nombrePerro + ";" + Servicio + ";" + fecha + ";" + hora + ";" + Estado + ";" + Valor + ";");
-                        pw.println();
-                        JOptionPane.showMessageDialog(rootPane, "Se agendo correctamente");
+                        if (disponibilidadHorario(fecha, hora)) {
+                            int diaActual = LocalDate.now().getDayOfMonth();
+                            int mesActual = LocalDate.now().getMonthValue();
+                            int AAActual = LocalDate.now().getYear();
+                            if (AAActual < Integer.parseInt(año)) {
+                                pw.print(cedula + ";" + nombre + ";" + nombrePerro + ";" + Servicio + ";" + fecha + ";" + hora + ";" + Estado + ";" + Valor + ";");
+                                pw.println();
+                                JOptionPane.showMessageDialog(rootPane, "Se agendo correctamente");
+                            } else if (mesActual < Integer.parseInt(mes)) {
+                                pw.print(cedula + ";" + nombre + ";" + nombrePerro + ";" + Servicio + ";" + fecha + ";" + hora + ";" + Estado + ";" + Valor + ";");
+                                pw.println();
+                                JOptionPane.showMessageDialog(rootPane, "Se agendo correctamente");
+                            } else if (diaActual <= Integer.parseInt(dia)) {
+                                pw.print(cedula + ";" + nombre + ";" + nombrePerro + ";" + Servicio + ";" + fecha + ";" + hora + ";" + Estado + ";" + Valor + ";");
+                                pw.println();
+                                JOptionPane.showMessageDialog(rootPane, "Se agendo correctamente");
+                            }else{
+                                JOptionPane.showMessageDialog(rootPane, "Fecha invalida");
+                            }
                         }
+
                     }
                 }
 
