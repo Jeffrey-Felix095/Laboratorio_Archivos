@@ -1,3 +1,5 @@
-123;El señorito;koko;Control;18/2/2021;9:30 AM;Atendida;10000.0;
-123;El señorito;koko;Vacunación;18/2/2021;11:30 AM;Atendida;35000.0;
-123;El señorito;koko;Consulta;26/2/2021;9:00 AM;Atendida;60000.0;
+123;El señor c;chandoso;Control;18/2/2021;9:30 AM;Atendida;10000.0;
+123;El señor c;chandoso;Vacunación;18/2/2021;11:30 AM;Atendida;35000.0;
+123;El señor c;chandoso;Consulta;26/2/2021;9:00 AM;Atendida;60000.0;
+123;El señor c;chandoso;Guardería;19/2/2021;9:30 AM;Atendida;35000.0;
+123;El señor c;chandoso;Guardería;24/2/2021;11:30 AM;Atendida;35000.0;

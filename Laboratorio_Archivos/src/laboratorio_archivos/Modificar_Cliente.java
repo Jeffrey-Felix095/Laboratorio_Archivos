@@ -217,14 +217,14 @@ public class Modificar_Cliente extends javax.swing.JFrame {
             if (M[i][0].compareTo(txtCedula_MC.getText()) == 0) {
                 M[i][1] = txtNombre_MC.getText();
                 M[i][2] = txtTelefono_MC.getText();
-                try {    
-                    int telefono =Integer.parseInt(M[i][2]);
+                try {
+                    int telefono = Integer.parseInt(M[i][2]);
                     valido = true;
                 } catch (Exception e) {
-                    if(!txtNombre_MC.getText().equals("") || !txtDireccion_MC.getText().equals("") || !txtCorreo_MC.getText().equals("")){
-                      JOptionPane.showMessageDialog(rootPane, "El telefono deben ser solo numeros");
-                        
-                    }else{
+                    if (!txtNombre_MC.getText().equals("") || !txtDireccion_MC.getText().equals("") || !txtCorreo_MC.getText().equals("")) {
+                        JOptionPane.showMessageDialog(rootPane, "El telefono deben ser solo numeros");
+
+                    } else {
                         JOptionPane.showMessageDialog(rootPane, "Debe rellenar todos los campos");
                     }
                 }
@@ -240,6 +240,7 @@ public class Modificar_Cliente extends javax.swing.JFrame {
             }
             Guardar();
             Actualizar();
+            actualizarAgenda();
             TomarDatos();
             DefaultTableModel model = (DefaultTableModel) tablaModificar.getModel();
             for (int i = 0; i < n; i++) {
@@ -250,8 +251,8 @@ public class Modificar_Cliente extends javax.swing.JFrame {
                 }
             }
             dispose();
-        }else{
-            if(valido==true){
+        } else {
+            if (valido == true) {
                 JOptionPane.showMessageDialog(rootPane, "Debe rellenar todos los campos");
             }
         }
@@ -314,6 +315,167 @@ public class Modificar_Cliente extends javax.swing.JFrame {
         return false;
     }
 
+    void actualizarAgenda() {
+        pasarDatosAgendaACambios(txtNombre_MC.getText(), Integer.parseInt(txtCedula_MC.getText()));
+        try {
+            limpiarAgenda();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Modificar_Cliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        pasarDatosCambiosAAgenda();
+        try {
+            limpiarCambios();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Modificar_Cliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    void pasarDatosAgendaACambios(String nombreA, int id) {
+        String ruta = "C:\\Users\\Jeffrey Felix\\Documents\\GitHub\\Laboratorio_Archivos\\Laboratorio_Archivos"; // ruta para el archivo
+        String fileName = "Agenda.txt"; // nombre
+        File archivo = new File(ruta, fileName); // instancia el archivo
+        File x = new File("");
+        File cambio = new File("Cambios.txt");
+        FileWriter fw = null;
+
+        try (Scanner sc = new Scanner(archivo)) {
+            while (sc.hasNextLine()) {
+                String linea = sc.nextLine();
+                String data[] = linea.split(";");
+                int idPersona = Integer.parseInt(data[0]);
+                String nombre;
+                if (id == idPersona) {
+                    nombre = nombreA;
+                } else {
+                    nombre = data[1];
+                }
+                String nombrePerro = data[2];
+                String servicio = data[3];
+                String fecha = data[4];
+                String hora = data[5];
+                String estado = data[6];
+                double valor = Double.parseDouble(data[7]);
+                // comparar idBuscar con idPersona
+                /*comprar y retornar
+		return data[2]*/
+
+                try {
+                    fw = new FileWriter(cambio, true);
+                    PrintWriter pw = new PrintWriter(fw);
+                    pw.print(idPersona + ";" + nombre + ";" + nombrePerro + ";" + servicio + ";" + fecha + ";" + hora + ";" + estado + ";" + valor + ";");
+                    pw.println();
+
+                } catch (IOException e) {
+                    System.out.println(e);
+                } finally {
+                    try {
+                        if (fw != null) {
+                            fw.close();
+                        }
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+
+                }
+            }//fin while
+            JOptionPane.showMessageDialog(rootPane, "El archivo se doblado");
+        } catch (IOException e) {
+            System.out.println("Error");
+        }
+    }
+
+    void limpiarAgenda() throws FileNotFoundException {
+        File x = new File("");
+        File agenda = new File("Agenda.txt");
+        try {
+            FileWriter fw = new FileWriter(agenda);
+            if (fw != null) {
+                fw.close();
+            }
+            if (agenda.delete()) {
+                System.out.println("El archivo fue eliminado");
+                agenda.createNewFile();
+            } else {
+                System.out.println("El archivo agenda no se puede borrar");
+            }
+
+        } catch (IOException ex) {
+            Logger.getLogger(AgregarHistorial.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    void pasarDatosCambiosAAgenda() {
+        String ruta = "C:\\Users\\Jeffrey Felix\\Documents\\GitHub\\Laboratorio_Archivos\\Laboratorio_Archivos"; // ruta para el archivo
+        String fileName = "Cambios.txt"; // nombre
+        File archivo = new File(ruta, fileName); // instancia el archivo
+        File x = new File("");
+        File agenda = new File("Agenda.txt");
+        FileWriter fw = null;
+
+        try (Scanner sc = new Scanner(archivo)) {
+            while (sc.hasNextLine()) {
+                String linea = sc.nextLine();
+                String data[] = linea.split(";");
+                int idPersona = Integer.parseInt(data[0]);
+                String nombre = data[1];
+                String nombrePerro = data[2];
+                String servicio = data[3];
+                String fecha = data[4];
+                String hora = data[5];
+                String estado = data[6];
+                double valor = Double.parseDouble(data[7]);
+                // comparar idBuscar con idPersona
+                /*comprar y retornar
+		return data[2]*/
+
+                try {
+                    fw = new FileWriter(agenda, true);
+                    PrintWriter pw = new PrintWriter(fw);
+                    pw.print(idPersona + ";" + nombre + ";" + nombrePerro + ";" + servicio + ";" + fecha + ";" + hora + ";" + estado + ";" + valor + ";");
+                    pw.println();
+                } catch (IOException e) {
+                    System.out.println(e);
+                } finally {
+                    try {
+                        if (fw != null) {
+                            fw.close();
+
+                        }
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+
+                }
+
+            }//fin while
+            JOptionPane.showMessageDialog(rootPane, "El archivo se Cruzo corectamente");
+        } catch (IOException e) {
+            System.out.println("Error");
+        }
+    }
+
+    void limpiarCambios() throws FileNotFoundException {
+        File x = new File("");
+        File cambios = new File("Cambios.txt");
+        try {
+            FileWriter fw = new FileWriter(cambios);
+            if (fw != null) {
+                fw.close();
+            }
+            if (cambios.delete()) {
+                System.out.println("El archivo fue eliminado");
+                cambios.createNewFile();
+            } else {
+                System.out.println("El archivo cambios no se puede borrar");
+            }
+
+        } catch (IOException ex) {
+            Logger.getLogger(AgregarHistorial.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    
+    
     void Actualizar() {
         DefaultTableModel Model = (DefaultTableModel) tablaModificar.getModel();
         Model.setRowCount(0);
@@ -410,7 +572,6 @@ public class Modificar_Cliente extends javax.swing.JFrame {
                 }
                 fila++;
             }
-            EscribirDatos();
 
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Interfaz_Cliente.class
@@ -421,10 +582,10 @@ public class Modificar_Cliente extends javax.swing.JFrame {
         }
     }
 
-    void cruceArchivos(){
-        
+    void cruceArchivos() {
+
     }
-    
+
     void Guardar() {
         File x = new File("");
         File Clientes = new File("Clientes.txt");
@@ -449,20 +610,6 @@ public class Modificar_Cliente extends javax.swing.JFrame {
             }
         }
         JOptionPane.showMessageDialog(rootPane, "El archivo se guardo");
-        txtCedula_MC.setText("");
-        txtNombre_MC.setText("");
-        txtTelefono_MC.setText("");
-        txtDireccion_MC.setText("");
-        txtCorreo_MC.setText("");
-    }
-
-    void EscribirDatos() {
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < 5; j++) {
-                System.out.print(M[i][j] + " -- ");
-            }
-            System.out.println("");
-        }
     }
 
     public static void main(String args[]) {

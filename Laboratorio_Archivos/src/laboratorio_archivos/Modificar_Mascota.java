@@ -256,6 +256,8 @@ public class Modificar_Mascota extends javax.swing.JFrame {
             cerrar = true;
         }
         if (cerrar == true) {
+            actualizarAgenda();
+            actualizarHistoriales();
             cerrar = false;
             dispose();
         }
@@ -421,10 +423,6 @@ public class Modificar_Mascota extends javax.swing.JFrame {
             }
         }
         JOptionPane.showMessageDialog(rootPane, "El archivo se guardo");
-        txtCedula_MC.setText("");
-        txtNombreP_MM.setText("");
-        txtRaza_MM.setText("");
-        txtColor_MM.setText("");
     }
 
     void EscribirDatos() {
@@ -433,6 +431,295 @@ public class Modificar_Mascota extends javax.swing.JFrame {
                 System.out.print(M[i][j] + " -- ");
             }
             System.out.println("");
+        }
+    }
+
+    void actualizarAgenda() {
+        pasarDatosAgendaACambios(txtNombreP_MM.getText(), txtNombrePB.getText());
+        try {
+            limpiarAgenda();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Modificar_Cliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        pasarDatosCambiosAAgenda();
+        try {
+            limpiarCambios();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Modificar_Cliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    void actualizarHistoriales() {
+        pasarDatosHistorialACambios(txtNombreP_MM.getText(), txtNombrePB.getText());
+        try {
+            limpiarHistorial();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Modificar_Cliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        pasarDatosCambiosAHistorial();
+        try {
+            limpiarCambios();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Modificar_Cliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    void pasarDatosAgendaACambios(String nombreActual, String nombreAnti) {
+        String ruta = "C:\\Users\\Jeffrey Felix\\Documents\\GitHub\\Laboratorio_Archivos\\Laboratorio_Archivos"; // ruta para el archivo
+        String fileName = "Agenda.txt"; // nombre
+        File archivo = new File(ruta, fileName); // instancia el archivo
+        File x = new File("");
+        File cambio = new File("Cambios.txt");
+        FileWriter fw = null;
+
+        try (Scanner sc = new Scanner(archivo)) {
+            while (sc.hasNextLine()) {
+                String linea = sc.nextLine();
+                String data[] = linea.split(";");
+                int idPersona = Integer.parseInt(data[0]);
+                String nombre = data[1];
+                String nombrePerro = data[2];
+                if (nombrePerro.equals(nombreAnti)) {
+                    nombrePerro = nombreActual;
+                }
+                String servicio = data[3];
+                String fecha = data[4];
+                String hora = data[5];
+                String estado = data[6];
+                double valor = Double.parseDouble(data[7]);
+                // comparar idBuscar con idPersona
+                /*comprar y retornar
+		return data[2]*/
+
+                try {
+                    fw = new FileWriter(cambio, true);
+                    PrintWriter pw = new PrintWriter(fw);
+                    pw.print(idPersona + ";" + nombre + ";" + nombrePerro + ";" + servicio + ";" + fecha + ";" + hora + ";" + estado + ";" + valor + ";");
+                    pw.println();
+
+                } catch (IOException e) {
+                    System.out.println(e);
+                } finally {
+                    try {
+                        if (fw != null) {
+                            fw.close();
+                        }
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+
+                }
+            }//fin while
+            JOptionPane.showMessageDialog(rootPane, "El archivo se doblado");
+        } catch (IOException e) {
+            System.out.println("Error");
+        }
+    }
+
+    void limpiarAgenda() throws FileNotFoundException {
+        File x = new File("");
+        File agenda = new File("Agenda.txt");
+        try {
+            FileWriter fw = new FileWriter(agenda);
+            if (fw != null) {
+                fw.close();
+            }
+            if (agenda.delete()) {
+                System.out.println("El archivo fue eliminado");
+                agenda.createNewFile();
+            } else {
+                System.out.println("El archivo agenda no se puede borrar");
+            }
+
+        } catch (IOException ex) {
+            Logger.getLogger(AgregarHistorial.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    void pasarDatosCambiosAAgenda() {
+        String ruta = "C:\\Users\\Jeffrey Felix\\Documents\\GitHub\\Laboratorio_Archivos\\Laboratorio_Archivos"; // ruta para el archivo
+        String fileName = "Cambios.txt"; // nombre
+        File archivo = new File(ruta, fileName); // instancia el archivo
+        File x = new File("");
+        File agenda = new File("Agenda.txt");
+        FileWriter fw = null;
+
+        try (Scanner sc = new Scanner(archivo)) {
+            while (sc.hasNextLine()) {
+                String linea = sc.nextLine();
+                String data[] = linea.split(";");
+                int idPersona = Integer.parseInt(data[0]);
+                String nombre = data[1];
+                String nombrePerro = data[2];
+                String servicio = data[3];
+                String fecha = data[4];
+                String hora = data[5];
+                String estado = data[6];
+                double valor = Double.parseDouble(data[7]);
+                // comparar idBuscar con idPersona
+                /*comprar y retornar
+		return data[2]*/
+
+                try {
+                    fw = new FileWriter(agenda, true);
+                    PrintWriter pw = new PrintWriter(fw);
+                    pw.print(idPersona + ";" + nombre + ";" + nombrePerro + ";" + servicio + ";" + fecha + ";" + hora + ";" + estado + ";" + valor + ";");
+                    pw.println();
+                } catch (IOException e) {
+                    System.out.println(e);
+                } finally {
+                    try {
+                        if (fw != null) {
+                            fw.close();
+
+                        }
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+
+                }
+
+            }//fin while
+            JOptionPane.showMessageDialog(rootPane, "El archivo se Cruzo corectamente");
+        } catch (IOException e) {
+            System.out.println("Error");
+        }
+    }
+
+    void limpiarCambios() throws FileNotFoundException {
+        File x = new File("");
+        File cambios = new File("Cambios.txt");
+        try {
+            FileWriter fw = new FileWriter(cambios);
+            if (fw != null) {
+                fw.close();
+            }
+            if (cambios.delete()) {
+                System.out.println("El archivo fue eliminado");
+                cambios.createNewFile();
+            } else {
+                System.out.println("El archivo cambios no se puede borrar");
+            }
+
+        } catch (IOException ex) {
+            Logger.getLogger(AgregarHistorial.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    void pasarDatosHistorialACambios(String nombreActual, String nombreAnti) {
+        String ruta = "C:\\Users\\Jeffrey Felix\\Documents\\GitHub\\Laboratorio_Archivos\\Laboratorio_Archivos"; // ruta para el archivo
+        String fileName = "Historiales.txt"; // nombre
+        File archivo = new File(ruta, fileName); // instancia el archivo
+        File x = new File("");
+        File cambio = new File("Cambios.txt");
+        FileWriter fw = null;
+
+        try (Scanner sc = new Scanner(archivo)) {
+            while (sc.hasNextLine()) {
+                String linea = sc.nextLine();
+                String data[] = linea.split(";");
+                int idPersona = Integer.parseInt(data[0]);
+                String nombrePerro = data[1];
+                if (nombrePerro.equals(nombreAnti)) {
+                    nombrePerro = nombreActual;
+                }
+                String fecha = data[2];
+                String servicio = data[3];
+                String diagnostico = data[4];
+                String prescripcion = data[5];
+                // comparar idBuscar con idPersona
+                /*comprar y retornar
+		return data[2]*/
+
+                try {
+                    fw = new FileWriter(cambio, true);
+                    PrintWriter pw = new PrintWriter(fw);
+                    pw.print(idPersona + ";" + nombrePerro + ";" + fecha + ";" + servicio + ";" + diagnostico + ";" + prescripcion + ";");
+                    pw.println();
+
+                } catch (IOException e) {
+                    System.out.println(e);
+                } finally {
+                    try {
+                        if (fw != null) {
+                            fw.close();
+                        }
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+
+                }
+            }//fin while
+            JOptionPane.showMessageDialog(rootPane, "El archivo se doblado");
+        } catch (IOException e) {
+            System.out.println("Error");
+        }
+    }
+
+    void limpiarHistorial() throws FileNotFoundException {
+        File x = new File("");
+        File historiales = new File("Historiales.txt");
+        try {
+            FileWriter fw = new FileWriter(historiales);
+            if (fw != null) {
+                fw.close();
+            }
+            if (historiales.delete()) {
+                System.out.println("El archivo fue eliminado");
+                historiales.createNewFile();
+            } else {
+                System.out.println("El archivo agenda no se puede borrar");
+            }
+
+        } catch (IOException ex) {
+            Logger.getLogger(AgregarHistorial.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    void pasarDatosCambiosAHistorial() {
+        String ruta = "C:\\Users\\Jeffrey Felix\\Documents\\GitHub\\Laboratorio_Archivos\\Laboratorio_Archivos"; // ruta para el archivo
+        String fileName = "Cambios.txt"; // nombre
+        File archivo = new File(ruta, fileName); // instancia el archivo
+        File x = new File("");
+        File historiales = new File("Historiales.txt");
+        FileWriter fw = null;
+
+        try (Scanner sc = new Scanner(archivo)) {
+            while (sc.hasNextLine()) {
+                String linea = sc.nextLine();
+                String data[] = linea.split(";");
+                int idPersona = Integer.parseInt(data[0]);
+                String nombrePerro = data[1];
+                String fecha = data[2];
+                String servicio = data[3];
+                String diagnostico = data[4];
+                String prescripcion = data[5];
+                // comparar idBuscar con idPersona
+                /*comprar y retornar
+		return data[2]*/
+
+                try {
+                    fw = new FileWriter(historiales, true);
+                    PrintWriter pw = new PrintWriter(fw);
+                    pw.print(idPersona + ";" + nombrePerro + ";" + fecha + ";" + servicio + ";" + diagnostico + ";" + prescripcion + ";");
+                    pw.println();
+
+                } catch (IOException e) {
+                    System.out.println(e);
+                } finally {
+                    try {
+                        if (fw != null) {
+                            fw.close();
+                        }
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+
+                }
+            }//fin while
+            JOptionPane.showMessageDialog(rootPane, "El archivo se doblado");
+        } catch (IOException e) {
+            System.out.println("Error");
         }
     }
 
