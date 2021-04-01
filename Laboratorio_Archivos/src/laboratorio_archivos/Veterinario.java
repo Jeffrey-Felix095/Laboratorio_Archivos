@@ -34,14 +34,17 @@ public class Veterinario extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnSiguiente_C = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
-        btnNuevoCliente = new javax.swing.JButton();
         txtCedula_IngresoV = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("SimSun", 0, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Cedula de veterinario");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 75, -1, 31));
 
         btnSiguiente_C.setText("Siguiente");
         btnSiguiente_C.addActionListener(new java.awt.event.ActionListener() {
@@ -49,6 +52,7 @@ public class Veterinario extends javax.swing.JFrame {
                 btnSiguiente_CActionPerformed(evt);
             }
         });
+        getContentPane().add(btnSiguiente_C, new org.netbeans.lib.awtextra.AbsoluteConstraints(199, 168, -1, -1));
 
         jButton8.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
         jButton8.setText("←");
@@ -57,63 +61,21 @@ public class Veterinario extends javax.swing.JFrame {
                 jButton8ActionPerformed(evt);
             }
         });
-
-        btnNuevoCliente.setText("Nuevo veterinario");
-        btnNuevoCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNuevoClienteActionPerformed(evt);
-            }
-        });
+        getContentPane().add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 13, 109, 44));
 
         txtCedula_IngresoV.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCedula_IngresoVActionPerformed(evt);
             }
         });
+        getContentPane().add(txtCedula_IngresoV, new org.netbeans.lib.awtextra.AbsoluteConstraints(163, 113, 156, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(287, Short.MAX_VALUE)
-                        .addComponent(btnNuevoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCedula_IngresoV, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(36, 36, 36)
-                                .addComponent(btnSiguiente_C)))
-                        .addGap(170, 170, 170))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(150, 150, 150))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(4, 4, 4)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtCedula_IngresoV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(btnSiguiente_C)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnNuevoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Veterinario.jpg"))); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-40, 80, 250, 160));
+
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FondoBlanco.jpg"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 490, 240));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -141,12 +103,6 @@ public class Veterinario extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton8ActionPerformed
 
-    private void btnNuevoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoClienteActionPerformed
-        Agregar_Veterinario pantalla_NVeterinario = new Agregar_Veterinario();
-        pantalla_NVeterinario.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_btnNuevoClienteActionPerformed
-
     private void txtCedula_IngresoVActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedula_IngresoVActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCedula_IngresoVActionPerformed
@@ -161,7 +117,7 @@ public class Veterinario extends javax.swing.JFrame {
 
     
      public static Boolean validarVeterinario(int cedulaIngresada) {
-        String ruta = "C:\\Users\\Jeffrey Felix\\Documents\\GitHub\\Laboratorio_Archivos\\Laboratorio_Archivos"; // ruta para el archivo
+        String ruta = "C:\\Veterinaria_PerrosPET"; // ruta para el archivo
         String fileName = "Veterinarios.txt"; // nombre
         File archivo = new File(ruta, fileName); // instancia el archivo
 
@@ -225,10 +181,11 @@ public class Veterinario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnNuevoCliente;
     private javax.swing.JButton btnSiguiente_C;
     private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField txtCedula_IngresoV;
     // End of variables declaration//GEN-END:variables
 }

@@ -60,8 +60,11 @@ public class AgregarHistorial extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         txtServicio = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         TablaAgendaV.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -78,31 +81,43 @@ public class AgregarHistorial extends javax.swing.JFrame {
         });
         jScrollPane4.setViewportView(TablaAgendaV);
 
+        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 143, 789, 223));
+
         txtDiagnostico.setColumns(20);
         txtDiagnostico.setRows(5);
         jScrollPane1.setViewportView(txtDiagnostico);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 520, 328, 131));
 
         txtPrescripcion.setColumns(20);
         txtPrescripcion.setRows(5);
         jScrollPane2.setViewportView(txtPrescripcion);
 
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 520, 328, 130));
+
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Prescripción");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 490, 206, 37));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Diagnostico");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 490, 206, 37));
 
         txtNombreP.setEditable(false);
+        getContentPane().add(txtNombreP, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 400, 204, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel7.setText("Nombre del perro:");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 400, -1, -1));
 
         txtCedulaD.setEditable(false);
+        getContentPane().add(txtCedulaD, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 400, 190, -1));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel11.setText("Cedula del dueño:");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 400, -1, -1));
 
         jButton1.setText("Crear historial");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -110,13 +125,16 @@ public class AgregarHistorial extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 670, 275, 56));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Crear historial clinico ");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(331, 23, 408, 51));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setText("Seleccione una cita:");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 87, 373, 49));
 
         jButton8.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
         jButton8.setText("←");
@@ -125,118 +143,27 @@ public class AgregarHistorial extends javax.swing.JFrame {
                 jButton8ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 20, 135, 46));
 
         txtFechaCita.setEditable(false);
+        getContentPane().add(txtFechaCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 450, 204, -1));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel8.setText("Fecha de la Cita:");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 450, -1, -1));
 
         txtServicio.setEditable(false);
+        getContentPane().add(txtServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 450, 205, -1));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel9.setText("Tipo de servicio: ");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 450, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(352, 352, 352)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap(263, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGap(123, 123, 123)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(71, 71, 71)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(49, 49, 49)))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 184, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(273, 273, 273))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGap(0, 0, Short.MAX_VALUE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 789, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(1, 1, 1)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel8)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(txtFechaCita, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel11)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(txtCedulaD, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addGap(71, 71, 71)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel7)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(txtNombreP, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel9)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(txtServicio, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(110, 110, 110)))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(202, 202, 202)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(187, 187, 187)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel7)
-                        .addComponent(txtNombreP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel11)
-                        .addComponent(txtCedulaD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8)
-                            .addComponent(txtFechaCita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel9)
-                            .addComponent(txtServicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(5, 5, 5)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Icono Registro.png"))); // NOI18N
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 10, 110, 110));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FondoBlanco.jpg"))); // NOI18N
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -4, 1020, 740));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -276,9 +203,18 @@ public class AgregarHistorial extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     void crearHistorial() {
-        File x = new File("");
-        File historial = new File("Historiales.txt");
+        File x = new File("C:\\Veterinaria_PerrosPET");
+        String Dir = "C:\\Veterinaria_PerrosPET";
+        File historial = new File(Dir, "Historiales.txt");
         FileWriter fw = null;
+        if (!historial.exists()) { //No existe el archivo
+            x.mkdir();
+            try {
+                historial.createNewFile();
+            } catch (IOException ex) {
+                System.out.println("Error");
+            }
+        }
         try {
             fw = new FileWriter(historial, true);
             PrintWriter pw = new PrintWriter(fw);
@@ -294,7 +230,7 @@ public class AgregarHistorial extends javax.swing.JFrame {
             String diagnostico = txtDiagnostico.getText();
             String prescripcion = txtPrescripcion.getText();
             if (cedula != 0) {
-                pw.print(cedula + ";" + nombre + ";"+ fecha + ";" + servicio + ";" + diagnostico + ";" + prescripcion + ";");
+                pw.print(cedula + ";" + nombre + ";" + fecha + ";" + servicio + ";" + diagnostico + ";" + prescripcion + ";");
                 pw.println();
                 JOptionPane.showMessageDialog(rootPane, "El archivo se guardo");
                 txtCedulaD.setText("");
@@ -336,8 +272,18 @@ public class AgregarHistorial extends javax.swing.JFrame {
     }
 
     void limpiarAgenda() throws FileNotFoundException {
-        File x = new File("");
-        File agenda = new File("Agenda.txt");
+        File x = new File("C:\\Veterinaria_PerrosPET");
+        String Dir = "C:\\Veterinaria_PerrosPET";
+        File agenda = new File(Dir, "Agenda.txt");
+        if (!agenda.exists()) { //No existe el archivo
+            x.mkdir();
+            try {
+                agenda.createNewFile();
+            } catch (IOException ex) {
+                System.out.println("Error");
+            }
+        }
+
         try {
             FileWriter fw = new FileWriter(agenda);
             if (fw != null) {
@@ -356,8 +302,18 @@ public class AgregarHistorial extends javax.swing.JFrame {
     }
 
     void limpiarCambios() throws FileNotFoundException {
-        File x = new File("");
-        File cambios = new File("Cambios.txt");
+        File x = new File("C:\\Veterinaria_PerrosPET");
+        String Dir = "C:\\Veterinaria_PerrosPET";
+        File cambios = new File(Dir, "Cambios.txt");
+        if (!cambios.exists()) { //No existe el archivo
+            x.mkdir();
+            try {
+                cambios.createNewFile();
+            } catch (IOException ex) {
+                System.out.println("Error");
+            }
+        }
+
         try {
             FileWriter fw = new FileWriter(cambios);
             if (fw != null) {
@@ -376,12 +332,21 @@ public class AgregarHistorial extends javax.swing.JFrame {
     }
 
     void pasarDatosAgendaACambios(String fechaC, String horaC) {
-        String ruta = "C:\\Users\\Jeffrey Felix\\Documents\\GitHub\\Laboratorio_Archivos\\Laboratorio_Archivos"; // ruta para el archivo
+        String ruta = "C:\\Veterinaria_PerrosPET"; // ruta para el archivo
         String fileName = "Agenda.txt"; // nombre
         File archivo = new File(ruta, fileName); // instancia el archivo
-        File x = new File("");
-        File cambio = new File("Cambios.txt");
+        File x = new File("C:\\Veterinaria_PerrosPET");
+        String Dir = "C:\\Veterinaria_PerrosPET";
+        File cambio = new File(Dir, "Cambios.txt");
         FileWriter fw = null;
+        if (!cambio.exists()) { //No existe el archivo
+            x.mkdir();
+            try {
+                cambio.createNewFile();
+            } catch (IOException ex) {
+                System.out.println("Error");
+            }
+        }
 
         try (Scanner sc = new Scanner(archivo)) {
             while (sc.hasNextLine()) {
@@ -430,12 +395,21 @@ public class AgregarHistorial extends javax.swing.JFrame {
     }
 
     void pasarDatosCambiosAAgenda() {
-        String ruta = "C:\\Users\\Jeffrey Felix\\Documents\\GitHub\\Laboratorio_Archivos\\Laboratorio_Archivos"; // ruta para el archivo
+        String ruta = "C:\\Veterinaria_PerrosPET"; // ruta para el archivo
         String fileName = "Cambios.txt"; // nombre
         File archivo = new File(ruta, fileName); // instancia el archivo
-        File x = new File("");
-        File agenda = new File("Agenda.txt");
+        File x = new File("C:\\Veterinaria_PerrosPET");
+        String Dir = "C:\\Veterinaria_PerrosPET";
+        File agenda = new File(Dir, "Agenda.txt");
         FileWriter fw = null;
+        if (!agenda.exists()) { //No existe el archivo
+            x.mkdir();
+            try {
+                agenda.createNewFile();
+            } catch (IOException ex) {
+                System.out.println("Error");
+            }
+        }
 
         try (Scanner sc = new Scanner(archivo)) {
             while (sc.hasNextLine()) {
@@ -488,8 +462,17 @@ public class AgregarHistorial extends javax.swing.JFrame {
 
     void MostrarCitas() {
         DefaultTableModel model = (DefaultTableModel) TablaAgendaV.getModel();
-        File x = new File("");
-        File agenda = new File("Agenda.txt");
+        File x = new File("C:\\Veterinaria_PerrosPET");
+        String Dir = "C:\\Veterinaria_PerrosPET";
+        File agenda = new File(Dir, "Agenda.txt");
+        if (!agenda.exists()) { //No existe el archivo
+            x.mkdir();
+            try {
+                agenda.createNewFile();
+            } catch (IOException ex) {
+                System.out.println("Error");
+            }
+        }
         FileReader fw;
         try {
             fw = new FileReader(agenda);
@@ -542,12 +525,11 @@ public class AgregarHistorial extends javax.swing.JFrame {
                         dato = "";
                     }
                 }
-                if (estado.equals("En espera")) {
+                if (estado.equals("Confirmada") && (!servicio.equals("Baño") && !servicio.equals("Guardería"))) {
                     String Datos[] = {String.valueOf(cedulaDueño), nombreDueño, nombrePerro, servicio, fechaCita, hora, estado, String.valueOf(valor)};
                     model.addRow(Datos);
                     TablaAgendaV.setModel(model);
                 }
-//                System.out.println(cliente.getCedula());
             }
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Interfaz_Cliente.class.getName()).log(Level.SEVERE, null, ex);
@@ -601,6 +583,8 @@ public class AgregarHistorial extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;

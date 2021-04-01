@@ -49,36 +49,51 @@ public class Agregar_Mascota extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         JCFechaN = new com.toedter.calendar.JDateChooser();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lolo.setFont(new java.awt.Font("Segoe Print", 1, 24)); // NOI18N
         lolo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lolo.setText("Datos de mascota");
+        getContentPane().add(lolo, new org.netbeans.lib.awtextra.AbsoluteConstraints(138, 13, -1, -1));
+        getContentPane().add(txtColorPerro, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 189, -1));
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         jLabel7.setText("Nombre del perro:");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
+        getContentPane().add(txtRazaPerro, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 189, -1));
+        getContentPane().add(txtNombrePerro, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 189, -1));
 
         txtCedulaDueño.setEditable(false);
+        getContentPane().add(txtCedulaDueño, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 189, -1));
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         jLabel8.setText("Raza del perro:");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         jLabel10.setText("Color del perro:");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, -1, -1));
 
-        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         jLabel11.setText("Cedula de dueño:");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, -1, -1));
 
+        btnAgregarMascota.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         btnAgregarMascota.setText("Agregar");
         btnAgregarMascota.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAgregarMascotaActionPerformed(evt);
             }
         });
+        getContentPane().add(btnAgregarMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(158, 291, 185, 58));
 
-        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         jLabel12.setText("Fecha de nacimiento:");
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
 
         jButton3.setText("←");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -86,71 +101,14 @@ public class Agregar_Mascota extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 13, -1, -1));
+        getContentPane().add(JCFechaN, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, 189, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(64, 64, 64)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addComponent(btnAgregarMascota, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(151, 151, 151))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel11))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtColorPerro, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
-                            .addComponent(txtRazaPerro)
-                            .addComponent(txtNombrePerro)
-                            .addComponent(txtCedulaDueño, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE)
-                            .addComponent(JCFechaN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(69, 69, 69))))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton3)
-                .addGap(81, 81, 81)
-                .addComponent(lolo)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lolo)
-                    .addComponent(jButton3))
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(txtCedulaDueño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(txtNombrePerro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(txtRazaPerro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(txtColorPerro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel12)
-                    .addComponent(JCFechaN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnAgregarMascota, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(70, Short.MAX_VALUE))
-        );
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/MascotaNueva.jpg"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 60, 250, 230));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FondoBlanco.jpg"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 360));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -160,14 +118,23 @@ public class Agregar_Mascota extends javax.swing.JFrame {
         if (txtNombrePerro.getText().equals("") || txtRazaPerro.getText().equals("") || txtColorPerro.getText().equals("")) {
             JOptionPane.showMessageDialog(rootPane, "Debe rellenar todos los campos");
         } else {
-            File Y = new File("");
-            File Mascotas = new File("Mascotas.txt");
+            File x = new File("C:\\Veterinaria_PerrosPET");
+            String Dir = "C:\\Veterinaria_PerrosPET";
+            File mascotas = new File(Dir, "Mascotas.txt");
             FileWriter fw = null;
+            if (!mascotas.exists()) { //No existe el archivo
+                x.mkdir();
+                try {
+                    mascotas.createNewFile();
+                } catch (IOException ex) {
+                    System.out.println("Error");
+                }
+            }
             String dia = "";
             String mes = "";
             String año = "";
             try {
-                fw = new FileWriter(Mascotas, true);
+                fw = new FileWriter(mascotas, true);
                 PrintWriter pw = new PrintWriter(fw);
                 String fechaNacimiento = "";
                 int cedulaDueño = Integer.parseInt(txtCedulaDueño.getText());
@@ -283,9 +250,11 @@ public class Agregar_Mascota extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser JCFechaN;
     private javax.swing.JButton btnAgregarMascota;
     private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel lolo;

@@ -5,17 +5,20 @@
  */
 package laboratorio_archivos;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Jeffrey Felix
  */
 public class Administrador extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Administrador
-     */
+    static String Contraseña = "123";
+    static int CedulaAdministrador = 12345;
+
     public Administrador() {
         initComponents();
+        JOptionPane.showMessageDialog(rootPane, "La cedula del administrador es: 12345\n La contraseña es: 123");
     }
 
     /**
@@ -27,21 +30,95 @@ public class Administrador extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        txtCedula_IngresoA = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        btnSiguiente_C = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        txtContraseña = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 649, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 414, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        txtCedula_IngresoA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCedula_IngresoAActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtCedula_IngresoA, new org.netbeans.lib.awtextra.AbsoluteConstraints(141, 102, 156, -1));
+
+        jLabel1.setFont(new java.awt.Font("SimSun", 0, 18)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Cedula de administrador");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(117, 64, 222, 31));
+
+        btnSiguiente_C.setText("Siguiente");
+        btnSiguiente_C.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSiguiente_CActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnSiguiente_C, new org.netbeans.lib.awtextra.AbsoluteConstraints(183, 200, -1, -1));
+
+        jButton8.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
+        jButton8.setText("←");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 13, 109, 44));
+
+        txtContraseña.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtContraseñaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(141, 169, 156, -1));
+
+        jLabel2.setFont(new java.awt.Font("SimSun", 0, 18)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Contraseña ");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 131, 189, 31));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FondoBlanco.jpg"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 0, 420, 300));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtCedula_IngresoAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCedula_IngresoAActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCedula_IngresoAActionPerformed
+
+    private void btnSiguiente_CActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguiente_CActionPerformed
+        if (txtCedula_IngresoA.getText().equals("")) {
+            JOptionPane.showMessageDialog(rootPane, "Ingrese su documneto de identidad");
+        } else {
+            try {
+                if (CedulaAdministrador == Integer.parseInt(txtCedula_IngresoA.getText()) && Contraseña.equals(txtContraseña.getText())) {
+                    Interface_Administrador pantalla_interfaceA = new Interface_Administrador();
+                    pantalla_interfaceA.setVisible(true);
+                    dispose();
+                } else {
+                    JOptionPane.showMessageDialog(rootPane, "Cedula o Contraseña invalida");
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(rootPane, "Cedula deben ser solo numeros");
+            }
+        }
+    }//GEN-LAST:event_btnSiguiente_CActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        Menu pantalla_1 = new Menu();
+        pantalla_1.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void txtContraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContraseñaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtContraseñaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +156,12 @@ public class Administrador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSiguiente_C;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JTextField txtCedula_IngresoA;
+    private javax.swing.JTextField txtContraseña;
     // End of variables declaration//GEN-END:variables
 }

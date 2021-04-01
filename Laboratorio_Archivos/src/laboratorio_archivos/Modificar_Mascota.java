@@ -58,12 +58,19 @@ public class Modificar_Mascota extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         JCFechaNN = new com.toedter.calendar.JDateChooser();
+        jButton2 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lolo.setFont(new java.awt.Font("Segoe Print", 1, 24)); // NOI18N
+        lolo.setFont(new java.awt.Font("Segoe Print", 1, 36)); // NOI18N
         lolo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lolo.setText("Datos de Mascotas");
+        getContentPane().add(lolo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, -1, -1));
+        getContentPane().add(txtColor_MM, new org.netbeans.lib.awtextra.AbsoluteConstraints(568, 272, 190, -1));
+        getContentPane().add(txtRaza_MM, new org.netbeans.lib.awtextra.AbsoluteConstraints(188, 272, 187, -1));
 
         tablaModificarM.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -80,39 +87,54 @@ public class Modificar_Mascota extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tablaModificarM);
 
-        txtCedula_MC.setEditable(false);
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 114, 567, 96));
+        getContentPane().add(txtNombreP_MM, new org.netbeans.lib.awtextra.AbsoluteConstraints(568, 230, 190, -1));
 
+        txtCedula_MC.setEditable(false);
+        getContentPane().add(txtCedula_MC, new org.netbeans.lib.awtextra.AbsoluteConstraints(188, 230, 190, -1));
+
+        btnModificar_Cliente.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
         btnModificar_Cliente.setText("Modificar");
         btnModificar_Cliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnModificar_ClienteActionPerformed(evt);
             }
         });
+        getContentPane().add(btnModificar_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, 185, 58));
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         jLabel7.setText("Nombre del perro:");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 230, -1, -1));
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         jLabel8.setText("Raza del perro:");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, -1));
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         jLabel10.setText("Color del perro: ");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 270, -1, -1));
 
+        jButton1.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
         jButton1.setText("Buscar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 70, -1, -1));
 
-        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         jLabel11.setText("Cedula del dueño:");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
 
-        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         jLabel12.setText("Fecha de Nacimento del perro: ");
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, -1, -1));
+        getContentPane().add(txtNombrePB, new org.netbeans.lib.awtextra.AbsoluteConstraints(345, 77, 190, -1));
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         jLabel9.setText("Nombre del perro:");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(183, 75, -1, -1));
 
         jButton3.setText("←");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -120,95 +142,23 @@ public class Modificar_Mascota extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 13, -1, -1));
+        getContentPane().add(JCFechaNN, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 320, 151, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lolo)
-                        .addGap(257, 257, 257))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 28, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(138, 138, 138)
-                                        .addComponent(jLabel12)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(JCFechaNN, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel11)
-                                            .addComponent(jLabel8))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtRaza_MM, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtCedula_MC, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(41, 41, 41)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel7)
-                                            .addComponent(jLabel10))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txtNombreP_MM)
-                                            .addComponent(txtColor_MM, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGap(275, 275, 275)
-                                        .addComponent(btnModificar_Cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(258, 258, 258)))
-                                .addGap(23, 23, 23))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 567, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(89, 89, 89))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtNombrePB, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton1)
-                                .addGap(163, 163, 163))))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lolo)
-                    .addComponent(jButton3))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(txtNombrePB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
-                    .addComponent(txtCedula_MC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7)
-                    .addComponent(txtNombreP_MM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(txtRaza_MM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10)
-                    .addComponent(txtColor_MM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel12)
-                    .addComponent(JCFechaNN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnModificar_Cliente, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
-        );
+        jButton2.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        jButton2.setText("Eliminar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 370, 192, 58));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/MascotaNueva.png"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 310, 150, 140));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FondoBlanco.jpg"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 0, 780, 470));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -285,6 +235,17 @@ public class Modificar_Mascota extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tablaModificarMMouseClicked
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        try {
+            actualizarAgendaEliminacion();
+            actualizarMascotas();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, "Debe seleccionar una mascota para eliminarla");
+        }
+
+
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     void plasmar(int i) {
         txtCedula_MC.setText(M[i][0]);
         txtNombreP_MM.setText(M[i][1]);
@@ -303,8 +264,17 @@ public class Modificar_Mascota extends javax.swing.JFrame {
     }
 
     void limpiar() throws FileNotFoundException {
-        File x = new File("");
-        File mascotas = new File("Mascotas.txt");
+        File x = new File("C:\\Veterinaria_PerrosPET");
+        String Dir = "C:\\Veterinaria_PerrosPET";
+        File mascotas = new File(Dir, "Mascotas.txt");
+        if (!mascotas.exists()) { //No existe el archivo
+            x.mkdir();
+            try {
+                mascotas.createNewFile();
+            } catch (IOException ex) {
+                System.out.println("Error");
+            }
+        }
         try {
             FileWriter fw = new FileWriter(mascotas);
             if (fw != null) {
@@ -324,8 +294,17 @@ public class Modificar_Mascota extends javax.swing.JFrame {
     }
 
     int ContarDatos() {
-        File x = new File("");
-        File mascotas = new File("Mascotas.txt");
+        File x = new File("C:\\Veterinaria_PerrosPET");
+        String Dir = "C:\\Veterinaria_PerrosPET";
+        File mascotas = new File(Dir, "Mascotas.txt");
+        if (!mascotas.exists()) { //No existe el archivo
+            x.mkdir();
+            try {
+                mascotas.createNewFile();
+            } catch (IOException ex) {
+                System.out.println("Error");
+            }
+        }
         FileReader fw;
         int cont = 0;
         try {
@@ -350,8 +329,17 @@ public class Modificar_Mascota extends javax.swing.JFrame {
         System.out.println("HOLA");
         n = ContarDatos();
         M = new String[n][5];
-        File x = new File("");
-        File mascotas = new File("Mascotas.txt");
+        File x = new File("C:\\Veterinaria_PerrosPET");
+        String Dir = "C:\\Veterinaria_PerrosPET";
+        File mascotas = new File(Dir, "Mascotas.txt");
+        if (!mascotas.exists()) { //No existe el archivo
+            x.mkdir();
+            try {
+                mascotas.createNewFile();
+            } catch (IOException ex) {
+                System.out.println("Error");
+            }
+        }
         FileReader fw;
         try {
             fw = new FileReader(mascotas);
@@ -388,7 +376,6 @@ public class Modificar_Mascota extends javax.swing.JFrame {
                 }
                 fila++;
             }
-            EscribirDatos();
 
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Interfaz_Cliente.class
@@ -400,8 +387,17 @@ public class Modificar_Mascota extends javax.swing.JFrame {
     }
 
     void Guardar() {
-        File x = new File("");
-        File mascotas = new File("Mascotas.txt");
+        File x = new File("C:\\Veterinaria_PerrosPET");
+        String Dir = "C:\\Veterinaria_PerrosPET";
+        File mascotas = new File(Dir, "Mascotas.txt");
+        if (!mascotas.exists()) { //No existe el archivo
+            x.mkdir();
+            try {
+                mascotas.createNewFile();
+            } catch (IOException ex) {
+                System.out.println("Error");
+            }
+        }
         FileWriter fw = null;
         try {
             fw = new FileWriter(mascotas, true);
@@ -425,17 +421,24 @@ public class Modificar_Mascota extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(rootPane, "El archivo se guardo");
     }
 
-    void EscribirDatos() {
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < 5; j++) {
-                System.out.print(M[i][j] + " -- ");
-            }
-            System.out.println("");
-        }
-    }
 
     void actualizarAgenda() {
         pasarDatosAgendaACambios(txtNombreP_MM.getText(), txtNombrePB.getText());
+        try {
+            limpiarAgenda();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Modificar_Cliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        pasarDatosCambiosAAgenda();
+        try {
+            limpiarCambios();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Modificar_Cliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    void actualizarAgendaEliminacion() {
+        pasarDatosAgendaACambiosEliminarMascota(txtNombrePB.getText(), Integer.parseInt(txtCedula_MC.getText()));
         try {
             limpiarAgenda();
         } catch (FileNotFoundException ex) {
@@ -464,12 +467,36 @@ public class Modificar_Mascota extends javax.swing.JFrame {
         }
     }
 
+    void actualizarMascotas() {
+        pasarDatosMascotasACambios(txtNombreP_MM.getText(), Integer.parseInt(txtCedula_MC.getText()));
+        try {
+            limpiarMascotas();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Modificar_Cliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        pasarDatosCambiosAMascotas();
+        try {
+            limpiarCambios();
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Modificar_Cliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     void pasarDatosAgendaACambios(String nombreActual, String nombreAnti) {
-        String ruta = "C:\\Users\\Jeffrey Felix\\Documents\\GitHub\\Laboratorio_Archivos\\Laboratorio_Archivos"; // ruta para el archivo
+        String ruta = "C:\\Veterinaria_PerrosPET"; // ruta para el archivo
         String fileName = "Agenda.txt"; // nombre
         File archivo = new File(ruta, fileName); // instancia el archivo
-        File x = new File("");
-        File cambio = new File("Cambios.txt");
+        File x = new File("C:\\Veterinaria_PerrosPET");
+        String Dir = "C:\\Veterinaria_PerrosPET";
+        File cambio = new File(Dir, "Cambios.txt");
+        if (!cambio.exists()) { //No existe el archivo
+            x.mkdir();
+            try {
+                cambio.createNewFile();
+            } catch (IOException ex) {
+                System.out.println("Error");
+            }
+        }
         FileWriter fw = null;
 
         try (Scanner sc = new Scanner(archivo)) {
@@ -516,9 +543,194 @@ public class Modificar_Mascota extends javax.swing.JFrame {
         }
     }
 
+    void pasarDatosMascotasACambios(String nombreMascota, int CedulaD) {
+        String ruta = "C:\\Veterinaria_PerrosPET"; // ruta para el archivo
+        String fileName = "Mascotas.txt"; // nombre
+        File archivo = new File(ruta, fileName); // instancia el archivo
+        File x = new File("C:\\Veterinaria_PerrosPET");
+        String Dir = "C:\\Veterinaria_PerrosPET";
+        File cambio = new File(Dir, "Cambios.txt");
+        if (!cambio.exists()) { //No existe el archivo
+            x.mkdir();
+            try {
+                cambio.createNewFile();
+            } catch (IOException ex) {
+                System.out.println("Error");
+            }
+        }
+        FileWriter fw = null;
+
+        try (Scanner sc = new Scanner(archivo)) {
+            while (sc.hasNextLine()) {
+                String linea = sc.nextLine();
+                String data[] = linea.split(";");
+                int idPersona = Integer.parseInt(data[0]);
+                String nombrePerro = data[1];
+                String razaPerro = data[2];
+                String colorPerro = data[2];
+                String fechaNacimiento = data[2];
+
+                // comparar idBuscar con idPersona
+                /*comprar y retornar
+		return data[2]*/
+                try {
+                    if (CedulaD == idPersona && nombrePerro.equals(nombreMascota)) {
+
+                    } else {
+                        fw = new FileWriter(cambio, true);
+                        PrintWriter pw = new PrintWriter(fw);
+                        pw.print(idPersona + ";" + nombrePerro + ";" + razaPerro + ";" + colorPerro + ";" + fechaNacimiento + ";");
+                        pw.println();
+                    }
+                } catch (IOException e) {
+                    System.out.println(e);
+                } finally {
+                    try {
+                        if (fw != null) {
+                            fw.close();
+                        }
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+
+                }
+            }//fin while
+            JOptionPane.showMessageDialog(rootPane, "El archivo se doblado");
+        } catch (IOException e) {
+            System.out.println("Error");
+        }
+    }
+
+    void pasarDatosCambiosAMascotas() {
+        String ruta = "C:\\Veterinaria_PerrosPET"; // ruta para el archivo
+        String fileName = "Cambios.txt"; // nombre
+        File archivo = new File(ruta, fileName); // instancia el archivo
+        File x = new File("C:\\Veterinaria_PerrosPET");
+        String Dir = "C:\\Veterinaria_PerrosPET";
+        File mascotas = new File(Dir, "Mascotas.txt");
+        if (!mascotas.exists()) { //No existe el archivo
+            x.mkdir();
+            try {
+                mascotas.createNewFile();
+            } catch (IOException ex) {
+                System.out.println("Error");
+            }
+        }
+        FileWriter fw = null;
+
+        try (Scanner sc = new Scanner(archivo)) {
+            while (sc.hasNextLine()) {
+                String linea = sc.nextLine();
+                String data[] = linea.split(";");
+                int idPersona = Integer.parseInt(data[0]);
+                String nombrePerro = data[1];
+                String razaPerro = data[2];
+                String colorPerro = data[2];
+                String fechaNacimiento = data[2];
+
+                // comparar idBuscar con idPersona
+                /*comprar y retornar
+		return data[2]*/
+                try {
+                    fw = new FileWriter(mascotas, true);
+                    PrintWriter pw = new PrintWriter(fw);
+                    pw.print(idPersona + ";" + nombrePerro + ";" + razaPerro + ";" + colorPerro + ";" + fechaNacimiento + ";");
+                    pw.println();
+
+                } catch (IOException e) {
+                    System.out.println(e);
+                } finally {
+                    try {
+                        if (fw != null) {
+                            fw.close();
+                        }
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+
+                }
+            }//fin while
+            JOptionPane.showMessageDialog(rootPane, "El archivo se doblado");
+        } catch (IOException e) {
+            System.out.println("Error");
+        }
+    }
+
+    void pasarDatosAgendaACambiosEliminarMascota(String nombreMascota, int cedulaDueño) {
+        String ruta = "C:\\Veterinaria_PerrosPET"; // ruta para el archivo
+        String fileName = "Agenda.txt"; // nombre
+        File archivo = new File(ruta, fileName); // instancia el archivo
+        File x = new File("C:\\Veterinaria_PerrosPET");
+        String Dir = "C:\\Veterinaria_PerrosPET";
+        File cambio = new File(Dir, "Cambioss.txt");
+        if (!cambio.exists()) { //No existe el archivo
+            x.mkdir();
+            try {
+                cambio.createNewFile();
+            } catch (IOException ex) {
+                System.out.println("Error");
+            }
+        }
+        FileWriter fw = null;
+
+        try (Scanner sc = new Scanner(archivo)) {
+            while (sc.hasNextLine()) {
+                String linea = sc.nextLine();
+                String data[] = linea.split(";");
+                int idPersona = Integer.parseInt(data[0]);
+                String nombre = data[1];
+                String nombrePerro = data[2];
+                String servicio = data[3];
+                String fecha = data[4];
+                String hora = data[5];
+                String estado = data[6];
+                double valor = Double.parseDouble(data[7]);
+                // comparar idBuscar con idPersona
+                /*comprar y retornar
+		return data[2]*/
+
+                try {
+                    if (nombrePerro.equals(nombreMascota) && idPersona == cedulaDueño) {
+
+                    } else {
+                        fw = new FileWriter(cambio, true);
+                        PrintWriter pw = new PrintWriter(fw);
+                        pw.print(idPersona + ";" + nombre + ";" + nombrePerro + ";" + servicio + ";" + fecha + ";" + hora + ";" + estado + ";" + valor + ";");
+                        pw.println();
+                    }
+
+                } catch (IOException e) {
+                    System.out.println(e);
+                } finally {
+                    try {
+                        if (fw != null) {
+                            fw.close();
+                        }
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+
+                }
+            }//fin while
+            JOptionPane.showMessageDialog(rootPane, "El archivo se doblado");
+        } catch (IOException e) {
+            System.out.println("Error");
+        }
+    }
+
     void limpiarAgenda() throws FileNotFoundException {
-        File x = new File("");
-        File agenda = new File("Agenda.txt");
+
+        File x = new File("C:\\Veterinaria_PerrosPET");
+        String Dir = "C:\\Veterinaria_PerrosPET";
+        File agenda = new File(Dir, "Agenda.txt");
+        if (!agenda.exists()) { //No existe el archivo
+            x.mkdir();
+            try {
+                agenda.createNewFile();
+            } catch (IOException ex) {
+                System.out.println("Error");
+            }
+        }
         try {
             FileWriter fw = new FileWriter(agenda);
             if (fw != null) {
@@ -536,12 +748,50 @@ public class Modificar_Mascota extends javax.swing.JFrame {
         }
     }
 
+    void limpiarMascotas() throws FileNotFoundException {
+        File x = new File("C:\\Veterinaria_PerrosPET");
+        String Dir = "C:\\Veterinaria_PerrosPET";
+        File mascotas = new File(Dir, "Mascotas.txt");
+        if (!mascotas.exists()) { //No existe el archivo
+            x.mkdir();
+            try {
+                mascotas.createNewFile();
+            } catch (IOException ex) {
+                System.out.println("Error");
+            }
+        }
+        try {
+            FileWriter fw = new FileWriter(mascotas);
+            if (fw != null) {
+                fw.close();
+            }
+            if (mascotas.delete()) {
+                System.out.println("El archivo fue eliminado");
+                mascotas.createNewFile();
+            } else {
+                System.out.println("El archivo agenda no se puede borrar");
+            }
+
+        } catch (IOException ex) {
+            Logger.getLogger(AgregarHistorial.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     void pasarDatosCambiosAAgenda() {
-        String ruta = "C:\\Users\\Jeffrey Felix\\Documents\\GitHub\\Laboratorio_Archivos\\Laboratorio_Archivos"; // ruta para el archivo
+        String ruta = "C:\\Veterinaria_PerrosPET"; // ruta para el archivo
         String fileName = "Cambios.txt"; // nombre
         File archivo = new File(ruta, fileName); // instancia el archivo
-        File x = new File("");
-        File agenda = new File("Agenda.txt");
+         File x = new File("C:\\Veterinaria_PerrosPET");
+        String Dir = "C:\\Veterinaria_PerrosPET";
+        File agenda = new File(Dir, "Agenda.txt");
+        if (!agenda.exists()) { //No existe el archivo
+            x.mkdir();
+            try {
+                agenda.createNewFile();
+            } catch (IOException ex) {
+                System.out.println("Error");
+            }
+        }
         FileWriter fw = null;
 
         try (Scanner sc = new Scanner(archivo)) {
@@ -587,8 +837,17 @@ public class Modificar_Mascota extends javax.swing.JFrame {
     }
 
     void limpiarCambios() throws FileNotFoundException {
-        File x = new File("");
-        File cambios = new File("Cambios.txt");
+          File x = new File("C:\\Veterinaria_PerrosPET");
+        String Dir = "C:\\Veterinaria_PerrosPET";
+        File cambios = new File(Dir, "Cambios.txt");
+        if (!cambios.exists()) { //No existe el archivo
+            x.mkdir();
+            try {
+                cambios.createNewFile();
+            } catch (IOException ex) {
+                System.out.println("Error");
+            }
+        }
         try {
             FileWriter fw = new FileWriter(cambios);
             if (fw != null) {
@@ -607,11 +866,20 @@ public class Modificar_Mascota extends javax.swing.JFrame {
     }
 
     void pasarDatosHistorialACambios(String nombreActual, String nombreAnti) {
-        String ruta = "C:\\Users\\Jeffrey Felix\\Documents\\GitHub\\Laboratorio_Archivos\\Laboratorio_Archivos"; // ruta para el archivo
+        String ruta = "C:\\Veterinaria_PerrosPET"; // ruta para el archivo
         String fileName = "Historiales.txt"; // nombre
         File archivo = new File(ruta, fileName); // instancia el archivo
-        File x = new File("");
-        File cambio = new File("Cambios.txt");
+          File x = new File("C:\\Veterinaria_PerrosPET");
+        String Dir = "C:\\Veterinaria_PerrosPET";
+        File cambio = new File(Dir, "Cambios.txt");
+        if (!cambio.exists()) { //No existe el archivo
+            x.mkdir();
+            try {
+                cambio.createNewFile();
+            } catch (IOException ex) {
+                System.out.println("Error");
+            }
+        }
         FileWriter fw = null;
 
         try (Scanner sc = new Scanner(archivo)) {
@@ -657,8 +925,17 @@ public class Modificar_Mascota extends javax.swing.JFrame {
     }
 
     void limpiarHistorial() throws FileNotFoundException {
-        File x = new File("");
-        File historiales = new File("Historiales.txt");
+           File x = new File("C:\\Veterinaria_PerrosPET");
+        String Dir = "C:\\Veterinaria_PerrosPET";
+        File historiales = new File(Dir, "Historiales.txt");
+        if (!historiales.exists()) { //No existe el archivo
+            x.mkdir();
+            try {
+                historiales.createNewFile();
+            } catch (IOException ex) {
+                System.out.println("Error");
+            }
+        }
         try {
             FileWriter fw = new FileWriter(historiales);
             if (fw != null) {
@@ -677,11 +954,20 @@ public class Modificar_Mascota extends javax.swing.JFrame {
     }
 
     void pasarDatosCambiosAHistorial() {
-        String ruta = "C:\\Users\\Jeffrey Felix\\Documents\\GitHub\\Laboratorio_Archivos\\Laboratorio_Archivos"; // ruta para el archivo
+        String ruta = "C:\\Veterinaria_PerrosPET"; // ruta para el archivo
         String fileName = "Cambios.txt"; // nombre
         File archivo = new File(ruta, fileName); // instancia el archivo
-        File x = new File("");
-        File historiales = new File("Historiales.txt");
+         File x = new File("C:\\Veterinaria_PerrosPET");
+        String Dir = "C:\\Veterinaria_PerrosPET";
+        File historiales = new File(Dir, "Historiales.txt");
+        if (!historiales.exists()) { //No existe el archivo
+            x.mkdir();
+            try {
+                historiales.createNewFile();
+            } catch (IOException ex) {
+                System.out.println("Error");
+            }
+        }
         FileWriter fw = null;
 
         try (Scanner sc = new Scanner(archivo)) {
@@ -759,10 +1045,13 @@ public class Modificar_Mascota extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser JCFechaNN;
     private javax.swing.JButton btnModificar_Cliente;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;

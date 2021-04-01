@@ -40,7 +40,6 @@ public class Solicitar_Cita extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField5 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -56,46 +55,61 @@ public class Solicitar_Cita extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         JDFechaC = new com.toedter.calendar.JDateChooser();
         jcbHora = new javax.swing.JComboBox<>();
-
-        jTextField5.setText("jTextField5");
+        jLabel9 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe Print", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe Print", 1, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Agendar cita");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, 260, 45));
 
         jLabel2.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         jLabel2.setText("Cedula de dueño: ");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 191, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         jLabel3.setText("Servicio:");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
 
+        jcbServicio.setFont(new java.awt.Font("Segoe Print", 0, 13)); // NOI18N
         jcbServicio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Consulta", "Control", "Desparasitación", "Vacunación", "Guardería", "Radiología", "Baño" }));
+        getContentPane().add(jcbServicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, 413, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         jLabel4.setText("Nombre de dueño: ");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 191, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Nombre de la mascota: ");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         jLabel6.setText("Fecha:");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
 
         txtCedulaD_AG.setEditable(false);
+        getContentPane().add(txtCedulaD_AG, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 294, -1));
 
         txtNombreD_AG.setEditable(false);
+        getContentPane().add(txtNombreD_AG, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 294, -1));
+        getContentPane().add(txtNombreP_AG, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, 269, -1));
 
+        jButton1.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
         jButton1.setText("AGENDAR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 203, 48));
 
         jLabel7.setFont(new java.awt.Font("Segoe Print", 0, 18)); // NOI18N
         jLabel7.setText("Hora:");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, -1, -1));
 
         jButton3.setText("←");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -103,92 +117,19 @@ public class Solicitar_Cita extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 13, -1, -1));
 
         JDFechaC.setDateFormatString("dd/MM/yyyy");
+        getContentPane().add(JDFechaC, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 146, -1));
 
         jcbHora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "8:00 AM", "8:30 AM", "9:00 AM", "9:30 AM", "10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM", "12:00", "12:30 PM", "2:00 PM", "2:30 PM", "3:00 PM", "3:30 PM", "4:00 PM", "4:30 PM", "5:00 PM", "5:30 PM" }));
+        getContentPane().add(jcbHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 270, 218, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 151, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(207, 207, 207))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jcbServicio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtCedulaD_AG, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
-                                    .addComponent(txtNombreD_AG)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtNombreP_AG, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(JDFechaC, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel7)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jcbHora, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(201, 201, 201)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(txtCedulaD_AG))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNombreD_AG))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNombreP_AG, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(9, 9, 9)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jcbServicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7)
-                            .addComponent(jcbHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(JDFechaC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(26, 26, 26)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33))
-        );
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/PasaleWE.png"))); // NOI18N
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 40, 250, 330));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/FondoBlanco.jpg"))); // NOI18N
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 0, 740, 410));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -206,14 +147,24 @@ public class Solicitar_Cita extends javax.swing.JFrame {
         if (txtNombreP_AG.getText().equals("")) {
             JOptionPane.showMessageDialog(rootPane, "Debe rellenar todos los campos");
         } else if (MascotaExiste(txtNombreP_AG.getText())) {
-            File x = new File("");
-            File Agenda = new File("Agenda.txt");
+            File x = new File("C:\\Veterinaria_PerrosPET");
+            String Dir = "C:\\Veterinaria_PerrosPET";
+            File agenda = new File(Dir, "Agenda.txt");
             FileWriter fw = null;
+            if (!agenda.exists()) { //No existe el archivo
+                x.mkdir();
+                try {
+                    agenda.createNewFile();
+                } catch (IOException ex) {
+                    System.out.println("Error");
+                }
+            }
+
             String dia = "";
             String mes = "";
             String año = "";
             try {
-                fw = new FileWriter(Agenda, true);
+                fw = new FileWriter(agenda, true);
                 PrintWriter pw = new PrintWriter(fw);
                 int cedula = Integer.parseInt(txtCedulaD_AG.getText());
                 String nombre = txtNombreD_AG.getText();
@@ -221,7 +172,7 @@ public class Solicitar_Cita extends javax.swing.JFrame {
                 String Servicio = (String) jcbServicio.getSelectedItem();
                 try {
                     dia = Integer.toString(JDFechaC.getCalendar().get(Calendar.DAY_OF_MONTH));
-                    mes = Integer.toString(JDFechaC.getCalendar().get(Calendar.MONTH)+1);
+                    mes = Integer.toString(JDFechaC.getCalendar().get(Calendar.MONTH) + 1);
                     año = Integer.toString(JDFechaC.getCalendar().get(Calendar.YEAR));
                     fecha = dia + "/" + mes + "/" + año;
                 } catch (Exception e) {
@@ -271,7 +222,7 @@ public class Solicitar_Cita extends javax.swing.JFrame {
                                 pw.print(cedula + ";" + nombre + ";" + nombrePerro + ";" + Servicio + ";" + fecha + ";" + hora + ";" + Estado + ";" + Valor + ";");
                                 pw.println();
                                 JOptionPane.showMessageDialog(rootPane, "Se agendo correctamente");
-                            }else{
+                            } else {
                                 JOptionPane.showMessageDialog(rootPane, "Fecha invalida");
                             }
                         }
@@ -299,14 +250,13 @@ public class Solicitar_Cita extends javax.swing.JFrame {
     }
 
     public Boolean disponibilidadHorario(String fecha, String hora) {
-        String ruta = "C:\\Users\\Jeffrey Felix\\Documents\\GitHub\\Laboratorio_Archivos\\Laboratorio_Archivos"; // ruta para el archivo
+        String ruta = "C:\\Veterinaria_PerrosPET"; // ruta para el archivo
         String fileName = "Agenda.txt"; // nombre
         File archivo = new File(ruta, fileName); // instancia el archivo
 
         try (Scanner sc = new Scanner(archivo)) {
             boolean disponible = true;
             String nombreDia = String.valueOf(JDFechaC.getDate()).substring(0, 3);
-            System.out.println(nombreDia);
             while (sc.hasNextLine() && disponible == true) {
                 String linea = sc.nextLine();
                 String data[] = linea.split(";");
@@ -334,7 +284,7 @@ public class Solicitar_Cita extends javax.swing.JFrame {
     }
 
     public Boolean datosDueño(int cedulaIngresada) {
-        String ruta = "C:\\Users\\Jeffrey Felix\\Documents\\GitHub\\Laboratorio_Archivos\\Laboratorio_Archivos"; // ruta para el archivo
+        String ruta = "C:\\Veterinaria_PerrosPET"; // ruta para el archivo
         String fileName = "Clientes.txt"; // nombre
         File archivo = new File(ruta, fileName); // instancia el archivo
 
@@ -364,7 +314,7 @@ public class Solicitar_Cita extends javax.swing.JFrame {
     }
 
     public Boolean MascotaExiste(String m) {
-        String ruta = "C:\\Users\\Jeffrey Felix\\Documents\\GitHub\\Laboratorio_Archivos\\Laboratorio_Archivos"; // ruta para el archivo
+        String ruta = "C:\\Veterinaria_PerrosPET"; // ruta para el archivo
         String fileName = "Mascotas.txt"; // nombre
         File archivo = new File(ruta, fileName); // instancia el archivo
 
@@ -430,7 +380,8 @@ public class Solicitar_Cita extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JComboBox<String> jcbHora;
     private javax.swing.JComboBox<String> jcbServicio;
     private javax.swing.JTextField txtCedulaD_AG;
